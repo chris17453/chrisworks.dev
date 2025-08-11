@@ -1,70 +1,207 @@
-# Getting Started with Create React App
+# Portfolio Site - Chris Watkins
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Professional portfolio showcasing 20+ years of enterprise engineering experience.
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+```
+src/
+├── portfolio.jsx                 # Main portfolio component
+├── data/
+│   └── portfolio_data.js        # Experience, solutions, and project data
+├── styles/
+│   └── portfolio_styles.js      # All CSS styles
+├── components/
+│   ├── navigation.jsx           # Top navigation bar
+│   ├── hero.jsx                 # Landing hero section
+│   ├── about.jsx                # About me cards
+│   ├── experience.jsx           # Professional experience timeline
+│   ├── video.jsx                # AI-generated hire me video
+│   ├── solutions.jsx            # Enterprise solutions showcase
+│   ├── projects.jsx             # Open source projects gallery
+│   ├── contact.jsx              # Contact information section
+│   └── footer.jsx               # Site footer
+└── utils/
+    └── head_manager.js          # SEO and meta tag management (existing)
+```
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React** - Component framework
+- **Bootstrap 5** - CSS framework
+- **Lucide React** - Icon library
+- **Vanilla CSS** - Custom styling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Responsive Design** - Mobile-first, works on all devices
+- **Dark Theme** - Professional dark aesthetic
+- **Smooth Scrolling** - Section-based navigation
+- **SEO Optimized** - Full meta tags and JSON-LD structured data
+- **Component-Based** - Modular architecture for easy maintenance
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup
 
-### `npm run build`
+### Prerequisites
+- Node.js 16+ 
+- npm or yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Clone repository
+git clone [your-repo-url]
+cd portfolio
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install dependencies
+npm install
 
-### `npm run eject`
+# Start development server
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```json
+{
+  "react": "^18.0.0",
+  "lucide-react": "^0.263.1"
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Bootstrap 5 is loaded via CDN in the main component.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Development
 
-## Learn More
+### Code Standards
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **snake_case** - All variables and functions use snake_case
+- **No over-commenting** - Code is self-documenting
+- **Component isolation** - Each component is independent
+- **MIT License** - Open source
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### File Descriptions
 
-### Code Splitting
+#### Main Component
+- `portfolio.jsx` - Orchestrates all components, handles scroll tracking, loads Bootstrap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Data Layer
+- `portfolio_data.js` - Contains all content:
+  - Professional experience (6 positions)
+  - Enterprise solutions (4 case studies)
+  - Open source projects (11 projects in 4 categories)
 
-### Analyzing the Bundle Size
+#### Components
+- `navigation.jsx` - Fixed top nav with active section tracking
+- `hero.jsx` - Landing with profile photo and CTAs
+- `about.jsx` - Three cards: Reality, Innovation, Commitment
+- `experience.jsx` - Timeline of professional roles with tech stacks
+- `video.jsx` - Embedded YouTube AI-generated demo
+- `solutions.jsx` - Enterprise project case studies
+- `projects.jsx` - GitHub projects organized by category
+- `contact.jsx` - Contact methods and availability info
+- `footer.jsx` - Copyright footer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Styles
+- `portfolio_styles.js` - All CSS in one exportable string
 
-### Making a Progressive Web App
+## Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Update Content
+Edit `data/portfolio_data.js` to modify:
+- Work experience
+- Projects
+- Solutions
+- Tech stacks
 
-### Advanced Configuration
+### Change Colors
+Edit CSS variables in `styles/portfolio_styles.js`:
+```css
+:root {
+  --bs-primary: #6366f1;   /* Primary accent */
+  --bs-secondary: #64748b; /* Secondary color */
+  --bs-dark: #000;         /* Background */
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Add Sections
+1. Create new component in `components/`
+2. Import in `portfolio.jsx`
+3. Add to navigation array
+4. Add section ID to scroll tracking
 
-### Deployment
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Build for Production
+```bash
+npm run build
+```
 
-### `npm run build` fails to minify
+### Deploy to Static Host
+The build output can be deployed to any static host:
+- Netlify
+- Vercel  
+- GitHub Pages
+- AWS S3 + CloudFront
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Environment Variables
+None required - all configuration is in code.
+
+## Contact Section Colors
+
+The contact section uses a blue gradient background with high-contrast white text:
+- Background: Blue gradient (`#1e3c72` to `#2a5298`)
+- Cards: Dark semi-transparent (`rgba(0, 0, 0, 0.4)`)
+- Buttons: White background with dark blue text
+- Text: Explicitly white for maximum visibility
+
+## SEO Configuration
+
+The site includes:
+- Open Graph meta tags
+- Twitter Card meta tags
+- JSON-LD structured data for Person and WebSite schemas
+- Canonical URL
+- Sitemap reference
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## Performance
+
+- Lazy-loaded Bootstrap via CDN
+- Minimal dependencies
+- Component-based code splitting ready
+- No heavy animations for fast rendering
+
+## Source Code
+
+View the complete source code for this portfolio site:
+
+🔗 **[github.com/chris17453/chrisworks.dev](https://github.com/chris17453/chrisworks.dev)**
+
+Feel free to:
+- Star the repository if you find it useful
+- Fork it for your own portfolio
+- Submit issues or PRs for improvements
+- Use it as a reference for React component architecture
+
+## License
+
+MIT License - See LICENSE file for details
+
+## Author
+
+**Chris Watkins**
+- Email: chris@watkinslabs.com
+- Phone: (877) 731-4155
+- GitHub: [@chris17453](https://github.com/chris17453)
+- Location: Sugar Hill, GA
+
+---
+
+Built with focus on enterprise-scale problem solving and 20+ years of engineering experience.
