@@ -5,24 +5,33 @@ Professional portfolio showcasing 20+ years of enterprise engineering experience
 ## Project Structure
 
 ```
-src/
-├── portfolio.jsx                 # Main portfolio component
-├── data/
-│   └── portfolio_data.js        # Experience, solutions, and project data
-├── styles/
-│   └── portfolio_styles.js      # All CSS styles
-├── components/
-│   ├── navigation.jsx           # Top navigation bar
-│   ├── hero.jsx                 # Landing hero section
-│   ├── about.jsx                # About me cards
-│   ├── experience.jsx           # Professional experience timeline
-│   ├── video.jsx                # AI-generated hire me video
-│   ├── solutions.jsx            # Enterprise solutions showcase
-│   ├── projects.jsx             # Open source projects gallery
-│   ├── contact.jsx              # Contact information section
-│   └── footer.jsx               # Site footer
-└── utils/
-    └── head_manager.js          # SEO and meta tag management (existing)
+├── public
+├── README.md
+├── src
+│   ├── App.js
+│   ├── components
+│   │   ├── about.jsx
+│   │   ├── contact.jsx
+│   │   ├── experience.jsx
+│   │   ├── footer.jsx
+│   │   ├── hero.jsx
+│   │   ├── hobbies.jsx
+│   │   ├── navigation.jsx
+│   │   ├── projects.jsx
+│   │   ├── solutions.jsx
+│   │   ├── source_code.jsx
+│   │   └── video.jsx
+│   ├── data
+│   │   └── portfolio_data.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   ├── source_Code.js
+│   ├── styles
+│   │   └── portfolio_styles.js
+│   └── utils
+│       └── head_manager.js
+└── tailwaind.config.js
 ```
 
 ## Tech Stack
