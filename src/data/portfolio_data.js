@@ -1,3 +1,4 @@
+// data/portfolio_data.js
 import { Server, Award, Code, Users } from 'lucide-react';
 
 export const professional_experience = [
@@ -13,7 +14,7 @@ export const professional_experience = [
       "Delivered sustainable support for systems with minimal vendor backing",
       "Transitioned VMware environments to cost-effective alternatives while maintaining operational continuity"
     ],
-    tech: ["Python", "PHP", "Perl", "COBOL", "C", "C++", "Linux", "VMware",'Teraform']
+    tech: ["Python", "PHP", "Perl", "COBOL", "C", "C++", "Linux", "VMware"]
   },
   {
     title: "Senior Site Reliability Engineer",
@@ -120,25 +121,29 @@ export const project_categories = [
         name: "AWS MQ + RDMQ HA",
         description: "High availability messaging infrastructure bridging AWS MQ and RDMQ for enterprise hybrid cloud environments",
         url: "https://github.com/chris17453/aws-mq-rdmq-ha",
-        tech: ["AWS MQ", "RDMQ", "Python"]
+        tech: ["AWS MQ", "RDMQ", "Python"],
+        image: "/static/rqdm.png"
       },
       {
         name: "Homelab Infrastructure",
         description: "Enterprise-grade home infrastructure with 3.5TB RAM, 306 cores running production-equivalent environments",
         url: "https://github.com/chris17453/homelab",
-        tech: ["Enterprise Hardware", "RedHat", "VMware"]
+        tech: ["Enterprise Hardware", "RedHat", "VMware"],
+        image: "/static/homelab.png"
       },
       {
         name: "Cloud Seeder",
         description: "Automated Rancher Kubernetes cluster deployment in VMware environments",
         url: "https://github.com/chris17453/cloud-seeder",
-        tech: ["Kubernetes", "VMware", "Rancher"]
+        tech: ["Kubernetes", "VMware", "Rancher"],
+        image: "/static/cloud-seeder.png"
       },
       {
         name: "VOIP Integration",
         description: "Voice agent modules for SIP/FreePBX enterprise telephony systems",
         url: "https://github.com/chris17453/echomatrix",
-        tech: ["SIP", "FreePBX", "VOIP"]
+        tech: ["SIP", "FreePBX", "VOIP"],
+        image: "/static/voip.jpg"
       }
     ]
   },
@@ -150,19 +155,22 @@ export const project_categories = [
         name: "CGAN MNIST Refactored",
         description: "Custom AI model training for handwritten text recognition with AI-generated font capabilities",
         url: "https://github.com/chris17453/cgan-MNIST-refactored",
-        tech: ["TensorFlow", "Python", "CGAN"]
+        tech: ["TensorFlow", "Python", "CGAN"],
+        image: "/static/minst.gif"
       },
       {
         name: "WordPress AI Generator",
         description: "Controlled AI article generation for WordPress with precision prompting and content management",
         url: "https://github.com/chris17453/wp-rss-article-re-gen",
-        tech: ["WordPress", "AI APIs", "PHP"]
+        tech: ["WordPress", "AI APIs", "PHP"],
+        image: "/static/ai-article.jpg"
       },
       {
         name: "Image to SVG Converter",
         description: "AI-powered tool for converting images to scalable vector graphics",
         url: "https://github.com/chris17453/imagetosvg",
-        tech: ["Python", "AI", "SVG Processing"]
+        tech: ["Python", "AI", "SVG Processing"],
+        image: "/static/img2svg.svg"
       }
     ]
   },
@@ -174,19 +182,22 @@ export const project_categories = [
         name: "Flort CLI Tool",
         description: "Command-line utility for concatenating files optimized for AI processing workflows",
         url: "https://github.com/watkinslabs/flort",
-        tech: ["Python", "CLI"]
+        tech: ["Python", "CLI"],
+        image: "/static/flort.png"
       },
       {
         name: "TTY to GIF",
         description: "Terminal session recorder that creates animated GIFs from text output",
         url: "https://github.com/chris17453/ttygif",
-        tech: ["Python", "Terminal Processing"]
+        tech: ["Python", "Terminal Processing"],
+        image: "/static/ttygif.gif"
       },
       {
         name: "VS Code Extensions",
         description: "File transfer utility and Flort integration for VS Code, plus 50+ published themes",
-        url: "https://marketplace.visualstudio.com/search?term=watkins%20labs",
-        tech: ["TypeScript", "VS Code API"]
+        url: "https://marketplace.visualstudio.com/search?term=watkins%20labs&target=VSCode&category=All%20categories&sortBy=Relevance",
+        tech: ["TypeScript", "VS Code API"],
+        image: "/static/theme.png"
       }
     ]
   },
@@ -198,8 +209,36 @@ export const project_categories = [
         name: "DDB Database Engine",
         description: "Stateless database engine providing SQL interface for flat files, adopted by multiple global organizations",
         url: "https://github.com/chris17453/ddb",
-        tech: ["Python", "SQL", "File Processing"]
+        tech: ["Python", "SQL", "File Processing"],
+        image: "/static/ddb.png"
       }
     ]
+  }
+];
+
+export const hobbies_data = [
+  {
+    name: "ESP32 Rack LED Bar",
+    description: "Custom-built LED status bar for server racks using ESP32 microcontroller. Real-time monitoring with addressable RGB LEDs for visual system status.",
+    url: "https://github.com/chris17453/ESP32LedRackBar",
+    type: "github",
+    icon: "cpu",
+    image: "static/led-bar.gif"
+  },
+  {
+    name: "Synthra AI Webcam",
+    description: "AI-powered webcam for Linux that adds real-time effects and filters using machine learning. Creates virtual camera devices for streaming.",
+    url: "https://www.youtube.com/watch?v=ORrxxhilm2M&t=19s",
+    type: "youtube",
+    icon: "sparkles",
+    image: "https://img.youtube.com/vi/ORrxxhilm2M/maxresdefault.jpg"
+  },
+  {
+    name: "Injectomatic",
+    description: "Micro keyboard device for auto-generating commit messages. Hardware solution for developers who hate writing commit messages.",
+    url: "https://www.youtube.com/watch?v=95b1C7n4zQc",
+    type: "youtube",
+    icon: "keyboard",
+    image: "https://img.youtube.com/vi/95b1C7n4zQc/maxresdefault.jpg"
   }
 ];

@@ -53,6 +53,13 @@ export const contact_section = ({ email_addr }) => (
                 <ExternalLink className="me-2" size={20} />
                 watkinslabs.com
               </a>
+
+              <a href="https://www.linkedin.com/in/chris17453/recent-activity/all/" className="contact-link-button" target="_blank" rel="noopener noreferrer">
+              
+              <ExternalLink className="me-2" size={20} />
+              LinkedIn Stalking
+              </a>
+
             </div>
             <div className="mt-3">
               <span className="text-white d-flex align-items-center justify-content-center">

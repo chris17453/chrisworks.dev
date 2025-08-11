@@ -1,3 +1,4 @@
+// components/solutions.jsx
 import React from 'react';
 
 const solution_card = ({ solution }) => (

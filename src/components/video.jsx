@@ -1,3 +1,4 @@
+// components/video.jsx
 import React from 'react';
 
 export const video_section = () => (

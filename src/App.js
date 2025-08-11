@@ -1,3 +1,4 @@
+// portfolio.jsx
 import { set_document_title, set_meta_name, set_meta_prop, set_link_rel, set_json_ld } from './utils/head_manager';
 import React, { useEffect, useMemo, useState } from 'react';
 import { navigation_component } from './components/navigation';
@@ -7,11 +8,12 @@ import { experience_section } from './components/experience';
 import { video_section } from './components/video';
 import { solutions_section } from './components/solutions';
 import { projects_section } from './components/projects';
+import { hobbies_section } from './components/hobbies';
 import { source_code_section } from './components/source_code';
 import { contact_section } from './components/contact';
 import { footer_component } from './components/footer';
 import { portfolio_styles } from './styles/portfolio_styles';
-import { professional_experience, enterprise_solutions, project_categories } from './data/portfolio_data';
+import { professional_experience, enterprise_solutions, project_categories, hobbies_data } from './data/portfolio_data';
 
 const Portfolio = () => {
   const [active_section, set_active_section] = useState('home');
@@ -77,7 +79,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handle_scroll = () => {
-      const sections = ['home', 'about', 'experience', 'hire-video', 'solutions', 'projects', 'source-code', 'contact'];
+      const sections = ['home', 'about', 'experience', 'hire-video', 'solutions', 'projects', 'hobbies', 'source-code', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -108,6 +110,7 @@ const Portfolio = () => {
         {video_section()}
         {solutions_section({ enterprise_solutions })}
         {projects_section({ project_categories })}
+        {hobbies_section({ hobbies_data })}
         {source_code_section()}
         {contact_section({ email_addr })}
         {footer_component()}
