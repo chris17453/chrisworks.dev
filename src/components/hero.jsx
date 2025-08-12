@@ -78,7 +78,7 @@ export const hero_section = ({ scroll_to_section }) => (
       <div className="row align-items-center">
         <div className="col-lg-8">
         <h1 className="display-4 fw-bold mb-3">Looking for work...</h1>
-        <h2 className="display-4 fw-bold mb-3">Engineer & Leader</h2>
+        <h2 className="display-4 fw-bold mb-3">IT Engineer & Leader</h2>
           
           {/* Quick contact info - animated badges */}
           <div className="d-flex gap-3 mb-4">

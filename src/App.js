@@ -3,7 +3,7 @@ import { set_document_title, set_meta_name, set_meta_prop, set_link_rel, set_jso
 import React, { useEffect, useMemo, useState } from 'react';
 import { navigation_component } from './components/navigation';
 import { hero_section } from './components/hero';
-import { about_section } from './components/about';
+import { AboutSection } from './components/about';
 import { experience_section } from './components/experience';
 import { video_section } from './components/video';
 import { projects_section } from './components/projects';
@@ -104,7 +104,7 @@ const Portfolio = () => {
       <div className="no-animation">
         {navigation_component({ active_section, scroll_to_section })}
         {hero_section({ scroll_to_section })}
-        {about_section()}
+        {AboutSection()}
         {experience_section({ professional_experience })}
         {video_section()}
         {projects_section({ project_categories })}

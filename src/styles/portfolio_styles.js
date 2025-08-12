@@ -631,27 +631,29 @@ export const portfolio_styles = `
     inset 0 0 20px rgba(102, 126, 234, 0.2);
 }
 
-/* About Section Swing Animation */
+/* About Section Physics-Based Swing */
 .about-swing-section {
   background: linear-gradient(135deg, rgb(19 53 110) 0%, rgb(139 144 161) 100%);
   overflow: hidden;
   position: relative;
 }
 
-.about-card-swing {
+.about-card-physics-swing {
   border-radius: 20px;
   background: rgba(20, 20, 30, 0.95);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.2);
   transform-origin: center top;
-  animation: gentle_swing 6s ease-in-out infinite;
   box-shadow: 
     0 25px 50px rgba(0, 0, 0, 0.3),
     0 10px 20px rgba(0, 0, 0, 0.2);
   position: relative;
+  transition: none; /* Important: no CSS transition, physics handles it */
+  will-change: transform;
 }
 
-.about-card-swing::before {
+/* String/rope effect */
+.about-card-physics-swing::before {
   content: '';
   position: absolute;
   top: -50px;
@@ -668,121 +670,12 @@ export const portfolio_styles = `
 
 .about-card-content {
   padding: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* Main swing animation */
-@keyframes gentle_swing {
-  0%, 100% {
-    transform: rotate(-1deg);
-  }
-  25% {
-    transform: rotate(1deg);
-  }
-  50% {
-    transform: rotate(-.75deg);
-  }
-  75% {
-    transform: rotate(.75deg);
-  }
-}
-
-/* Hover state - increases swing */
-.about-card-swing:hover {
-  animation: active_swing 2s ease-in-out infinite;
-}
-
-@keyframes active_swing {
-  0%, 100% {
-    transform: rotate(-4deg) translateY(-5px);
-  }
-  50% {
-    transform: rotate(4deg) translateY(-5px);
-  }
-}
-
-/* Alternative pendulum swing */
-.about-card-pendulum {
-  transform-origin: center -100px;
-  animation: pendulum_swing 4s ease-in-out infinite;
-}
-
-@keyframes pendulum_swing {
-  0%, 100% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(4deg);
-  }
-}
-
-/* Bouncy swing variant */
-.about-card-bouncy {
-  animation: bouncy_swing 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-}
-
-@keyframes bouncy_swing {
-  0%, 100% {
-    transform: rotate(-3deg) scale(1);
-  }
-  25% {
-    transform: rotate(3deg) scale(1.02);
-  }
-  50% {
-    transform: rotate(-2deg) scale(1);
-  }
-  75% {
-    transform: rotate(2deg) scale(1.01);
-  }
-}
-
-/* 3D swing effect */
-.about-card-3d-swing {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  animation: swing_3d 5s ease-in-out infinite;
-}
-
-@keyframes swing_3d {
-  0%, 100% {
-    transform: perspective(1000px) rotateX(-5deg) rotateY(-5deg);
-  }
-  25% {
-    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
-  }
-  50% {
-    transform: perspective(1000px) rotateX(-3deg) rotateY(3deg);
-  }
-  75% {
-    transform: perspective(1000px) rotateX(3deg) rotateY(-3deg);
-  }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .about-card-swing {
-    animation: mobile_gentle_swing 6s ease-in-out infinite;
-  }
-  
-  @keyframes mobile_gentle_swing {
-    0%, 100% {
-      transform: rotate(-1deg);
-    }
-    50% {
-      transform: rotate(1deg);
-    }
-  }
-  
-  .about-card-swing:hover {
-    animation: mobile_gentle_swing 6s ease-in-out infinite;
-  }
-  
-  .about-card-content {
-    padding: 1.5rem;
-  }
-}
-
-.about-card-swing::after {
-  content: '';
+/* Dynamic shadow that moves with swing */
+.swing-shadow {
   position: absolute;
   bottom: -30px;
   left: 10%;
@@ -793,25 +686,62 @@ export const portfolio_styles = `
     transparent 70%
   );
   filter: blur(20px);
-  animation: shadow_swing 6s ease-in-out infinite;
+  transition: none;
+  will-change: transform, opacity;
+  pointer-events: none;
 }
 
-@keyframes shadow_swing {
-  0%, 100% {
-    transform: translateX(-10px) scale(0.9);
-    opacity: 0.3;
+/* Remove hover animations - physics only */
+.about-card-physics-swing:hover {
+  /* No hover effect - scroll controls the swing */
+}
+
+/* Visual indicator for scroll interaction */
+.about-swing-section::after {
+  content: '↕ Scroll to swing';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fade_pulse 2s ease-in-out infinite;
+}
+
+@keyframes fade_pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .about-card-physics-swing {
+    /* Reduce max swing on mobile */
+    transform-origin: center top;
   }
-  25% {
-    transform: translateX(10px) scale(1.1);
-    opacity: 0.5;
+  
+  .about-card-content {
+    padding: 1.5rem;
   }
-  50% {
-    transform: translateX(-5px) scale(1);
-    opacity: 0.4;
+  
+  .about-swing-section::after {
+    display: none;
   }
-  75% {
-    transform: translateX(5px) scale(1.05);
-    opacity: 0.45;
-  }
+}
+
+/* Optional: Add connecting points for multi-card setup */
+.swing-connection-point {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, 
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 50%;
+  transform: translateX(-50%);
 }
 `;
