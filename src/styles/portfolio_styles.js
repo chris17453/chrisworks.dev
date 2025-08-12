@@ -200,10 +200,7 @@ export const portfolio_styles = `
   .section-padding {
     padding: 80px 0;
   }
-  .no-animation * {
-    animation: none !important;
-    transition: opacity 0.3s ease, transform 0.3s ease !important;
-  }
+  
   .display-4 {
     font-weight: 300;
     color: #fff !important;
@@ -576,4 +573,245 @@ export const portfolio_styles = `
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
   }
+    .contact-hero-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  overflow: hidden;
+}
+
+.contact-hero-badge:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+  color: white;
+}
+
+.badge-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+  animation: pulse-shine 2s infinite;
+}
+
+@keyframes pulse-shine {
+  0% {
+    transform: translateX(-100%) skewX(-25deg);
+  }
+  50%, 100% {
+    transform: translateX(200%) skewX(-25deg);
+  }
+}
+
+/* Alternative: Neon glow style */
+.contact-hero-badge.neon {
+  background: rgba(102, 126, 234, 0.1);
+  border: 2px solid #667eea;
+  color: #667eea;
+  text-shadow: 0 0 10px rgba(102, 126, 234, 0.8);
+  box-shadow: 
+    0 0 20px rgba(102, 126, 234, 0.4),
+    inset 0 0 20px rgba(102, 126, 234, 0.1);
+}
+
+.contact-hero-badge.neon:hover {
+  background: rgba(102, 126, 234, 0.2);
+  box-shadow: 
+    0 0 30px rgba(102, 126, 234, 0.6),
+    inset 0 0 20px rgba(102, 126, 234, 0.2);
+}
+
+/* About Section Swing Animation */
+.about-swing-section {
+  background: linear-gradient(135deg, rgb(19 53 110) 0%, rgb(139 144 161) 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.about-card-swing {
+  border-radius: 20px;
+  background: rgba(20, 20, 30, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transform-origin: center top;
+  animation: gentle_swing 6s ease-in-out infinite;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.about-card-swing::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(to bottom, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(255, 255, 255, 0.2)
+  );
+  transform: translateX(-50%);
+}
+
+.about-card-content {
+  padding: 3rem;
+}
+
+/* Main swing animation */
+@keyframes gentle_swing {
+  0%, 100% {
+    transform: rotate(-1deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  50% {
+    transform: rotate(-.75deg);
+  }
+  75% {
+    transform: rotate(.75deg);
+  }
+}
+
+/* Hover state - increases swing */
+.about-card-swing:hover {
+  animation: active_swing 2s ease-in-out infinite;
+}
+
+@keyframes active_swing {
+  0%, 100% {
+    transform: rotate(-4deg) translateY(-5px);
+  }
+  50% {
+    transform: rotate(4deg) translateY(-5px);
+  }
+}
+
+/* Alternative pendulum swing */
+.about-card-pendulum {
+  transform-origin: center -100px;
+  animation: pendulum_swing 4s ease-in-out infinite;
+}
+
+@keyframes pendulum_swing {
+  0%, 100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+/* Bouncy swing variant */
+.about-card-bouncy {
+  animation: bouncy_swing 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+@keyframes bouncy_swing {
+  0%, 100% {
+    transform: rotate(-3deg) scale(1);
+  }
+  25% {
+    transform: rotate(3deg) scale(1.02);
+  }
+  50% {
+    transform: rotate(-2deg) scale(1);
+  }
+  75% {
+    transform: rotate(2deg) scale(1.01);
+  }
+}
+
+/* 3D swing effect */
+.about-card-3d-swing {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: swing_3d 5s ease-in-out infinite;
+}
+
+@keyframes swing_3d {
+  0%, 100% {
+    transform: perspective(1000px) rotateX(-5deg) rotateY(-5deg);
+  }
+  25% {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(-3deg) rotateY(3deg);
+  }
+  75% {
+    transform: perspective(1000px) rotateX(3deg) rotateY(-3deg);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .about-card-swing {
+    animation: mobile_gentle_swing 6s ease-in-out infinite;
+  }
+  
+  @keyframes mobile_gentle_swing {
+    0%, 100% {
+      transform: rotate(-1deg);
+    }
+    50% {
+      transform: rotate(1deg);
+    }
+  }
+  
+  .about-card-swing:hover {
+    animation: mobile_gentle_swing 6s ease-in-out infinite;
+  }
+  
+  .about-card-content {
+    padding: 1.5rem;
+  }
+}
+
+.about-card-swing::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 10%;
+  right: 10%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, 
+    rgba(0, 0, 0, 0.3) 0%, 
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: shadow_swing 6s ease-in-out infinite;
+}
+
+@keyframes shadow_swing {
+  0%, 100% {
+    transform: translateX(-10px) scale(0.9);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateX(10px) scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-5px) scale(1);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateX(5px) scale(1.05);
+    opacity: 0.45;
+  }
+}
 `;

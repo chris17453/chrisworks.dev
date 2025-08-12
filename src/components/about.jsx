@@ -1,28 +1,17 @@
 import React from 'react';
 
 export const about_section = () => (
- <section id="about" className="section-padding" style={{ 
-   background: 'linear-gradient(135deg, rgb(19 53 110) 0%, rgb(139 144 161) 100%)',
-   overflow: 'hidden'
- }}>
-   <div className="container">
-     <div className="row">
-       <div className="col-lg-12 text-center mb-5">
-         <h2 className="display-5 fw-bold mb-4 text-white">About Me</h2>
-       </div>
-     </div>
-     <div className="row">
-       <div className="col-lg-10 offset-lg-1">
-         <div className="card shadow-lg" style={{ 
-           borderRadius: '20px', 
-           background: 'rgba(20, 20, 30, 0.95)',
-           backdropFilter: 'blur(10px)',
-           border: '2px solid rgba(255, 255, 255, 0.2)',
-           transform: window.innerWidth > 768 ? 'rotate(-1deg)' : 'none'
-         }}>
-           <div className="p-3 p-md-5" style={{ 
-             transform: window.innerWidth > 768 ? 'rotate(1deg)' : 'none' 
-           }}>
+  <section id="about" className="section-padding section-about about-swing-section">
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-12 text-center mb-5">
+          <h2 className="display-5 fw-bold mb-4 text-white">About Me</h2>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-10 offset-lg-1">
+          <div className="about-card-swing">
+            <div className="about-card-content">
              <p className="lead mb-4 text-white">
                I have spent 25 years living and breathing technology, building, breaking, and fixing enterprise systems. 
              </p>

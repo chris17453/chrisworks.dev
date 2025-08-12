@@ -7,7 +7,7 @@ export const video_section = () => (
       <div className="row">
         <div className="col-lg-12 text-center mb-5">
           <h2 className="display-5 fw-bold mb-4">Hire Me .. AI Generated Demo</h2>
-          <p className="lead">Created with Stable Diffusion, Google Veo 2, Facebook AudioGen & Suno AI</p>
+          <p className="lead">Created with Stable Diffusion, Google Veo 2, Facebook AudioGen & Suno AI, and automation. No one click interface was available, this was entirely me, the tools and the command line.</p>
         </div>
       </div>
       <div className="row justify-content-center">

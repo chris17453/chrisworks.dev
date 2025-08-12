@@ -97,12 +97,6 @@ html {
   padding: 80px 0;
 }
 
-/* Remove corny animations */
-.no-animation * {
-  animation: none !important;
-  transition: opacity 0.3s ease, transform 0.3s ease !important;
-}
-
 /* Professional typography */
 .display-4 {
   font-weight: 300;
