@@ -9,12 +9,13 @@ export const portfolio_styles = `
     background-color: #000;
     color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 56px; /* Account for fixed navbar */
   }
   html {
     scroll-behavior: smooth;
   }
   .bg-gradient-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #624b22 0%, #15150b 100%)
   }
   .bg-gradient-dark {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -40,7 +41,7 @@ export const portfolio_styles = `
     background: linear-gradient(135deg, #1e1e2e 0%, #2a2a4e 100%);
   }
   .section-projects {
-    background: linear-gradient(135deg, #0f0f0f 0%, #1f1f2f 100%);
+    background: linear-gradient(135deg, #715844 0%, #150d66 100%);
   }
   .section-hobbies {
     background: linear-gradient(135deg, #001a0d 0%, #002619 100%);
@@ -157,9 +158,44 @@ export const portfolio_styles = `
   .profile-photo {
     width: 250px;
     height: 250px;
+    max-width: 100%;
     object-fit: cover;
     border: 3px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  .hero-section {
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: auto;
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+    }
+    .terminal-window {
+      max-width: 100%;
+      font-size: 12px;
+    }
+    .terminal-body {
+      padding: 15px;
+      min-height: 150px;
+    }
+    .display-5 {
+      font-size: 2rem;
+    }
+    .lead {
+      font-size: 1.1rem;
+    }
+    .btn-professional {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
   }
   .section-padding {
     padding: 80px 0;

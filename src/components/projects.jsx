@@ -39,7 +39,7 @@ const project_card = ({ project }) => (
 );
 
 export const projects_section = ({ project_categories }) => (
-  <section id="projects" className="section-padding section-dark">
+  <section id="projects" className="section-padding section-projects">
     <div className="container">
       <div className="row">
         <div className="col-lg-12 text-center mb-5">

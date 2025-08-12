@@ -16,7 +16,7 @@ export const navigation_component = ({ active_section, scroll_to_section }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            {['home', 'about', 'hire-video', 'experience', 'solutions', 'projects', 'hobbies', 'source-code', 'contact'].map(section => (
+            {['home', 'about', 'experience', 'hire-video',  'projects', 'hobbies', 'source-code', 'contact'].map(section => (
               <li key={section} className="nav-item">
                 <a className={`nav-link ${active_section === section ? 'active' : ''}`}
                    href={`#${section}`} 

@@ -1,0 +1,589 @@
+<html lang="en"><head><meta charset="utf-8"><link rel="icon" href="/favicon.ico"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#8b5cf6"><meta name="description" content="principal engineer ... 20+ years ... linux, kubernetes, aws, ai/ml ... built infra for finance at scale."><link rel="apple-touch-icon" href="/logo192.png"><link rel="manifest" href="/manifest.json"><title>chris watkins ... principal engineer ... linux + backend</title><meta name="description" content="principal engineer ... 20+ years ... linux, kubernetes, aws, ai/ml ... built infra for finance at scale."><link rel="canonical" href="https://chrisworks.dev/"><meta property="og:type" content="website"><meta property="og:url" content="https://chrisworks.dev/"><meta property="og:title" content="chris watkins ... principal engineer"><meta property="og:description" content="linux + backend ... enterprise scale ... projects, case studies, contact."><meta property="og:image" content="https://chrisworks.dev/static/og.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="chris watkins ... principal engineer"><meta name="twitter:description" content="linux + backend ... enterprise scale."><meta name="twitter:image" content="https://chrisworks.dev/static/og.png"><meta name="robots" content="index,follow"><link rel="me" href="https://github.com/chris17453"><link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"><link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"><script defer="defer" src="/static/js/main.9bdff300.js"></script><link href="/static/css/main.2793c5f6.css" rel="stylesheet"><script type="application/ld+json" id="person_ld">{"@context":"https://schema.org","@type":"Person","name":"Chris Watkins","url":"https://chrisworks.dev/","image":"https://chrisworks.dev/static/chris.webp","sameAs":["https://github.com/chris17453","https://www.linkedin.com/in/YOUR_LINKEDIN"],"jobTitle":"Principal Engineer","email":"mailto:chris@watkinslabs.com","worksFor":{"@type":"Organization","name":"Watkins Labs"},"knowsAbout":["Linux","Kubernetes","AWS","SRE","AI/ML","Networking","Security"]}</script><script type="application/ld+json" id="website_ld">{"@context":"https://schema.org","@type":"WebSite","url":"https://chrisworks.dev/","name":"Chris Watkins Portfolio","potentialAction":{"@type":"SearchAction","target":"https://chrisworks.dev/?q={search_term_string}","query-input":"required name=search_term_string"}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><style>
+  :root {
+    --bs-dark: #000;
+    --bs-primary: #6366f1;
+    --bs-secondary: #64748b;
+  }
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 56px; /* Account for fixed navbar */
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+  .section-dark {
+    background-color: #111;
+  }
+  .section-gray {
+    background-color: #1a1a1a;
+  }
+  
+  /* Section-specific backgrounds */
+  .section-about {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+  }
+  .section-experience {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 100%);
+  }
+  .section-video {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+  }
+  .section-solutions {
+    background: linear-gradient(135deg, #1e1e2e 0%, #2a2a4e 100%);
+  }
+  .section-projects {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1f1f2f 100%);
+  }
+  .section-hobbies {
+    background: linear-gradient(135deg, #001a0d 0%, #002619 100%);
+  }
+  .section-source {
+    background: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-source::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg at 50% 50%, 
+      transparent 0deg, 
+      #6366f1 60deg, 
+      transparent 120deg, 
+      #a855f7 180deg, 
+      transparent 240deg, 
+      #00ff88 300deg, 
+      transparent 360deg);
+    animation: rotate-gradient 20s linear infinite;
+    opacity: 0.1;
+  }
+  @keyframes rotate-gradient {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Contact Section Specific Styles */
+  .section-contact {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  }
+  .contact-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  .contact-link-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 25px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e3c72 !important;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  .contact-link-button:hover {
+    background: white;
+    color: #2a5298 !important;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #00ff88 0%, #00bbff 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    filter: brightness(1.2);
+  }
+  .navbar-brand:hover {
+    background: linear-gradient(135deg, #a855f7 0%, #00bbff 50%, #00ff88 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: scale(1.05);
+    filter: brightness(1.4);
+  }
+  .nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    color: #e0e0e0 !important;
+  }
+  .nav-link:hover {
+    color: var(--bs-primary) !important;
+  }
+  .nav-link.active {
+    color: var(--bs-primary) !important;
+  }
+  .card-professional {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+  }
+  .card-professional:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  .btn-professional {
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+  .btn-professional:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  .profile-photo {
+    width: 250px;
+    height: 250px;
+    max-width: 100%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  .hero-section {
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: auto;
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+    }
+    .terminal-window {
+      max-width: 100%;
+      font-size: 12px;
+    }
+    .terminal-body {
+      padding: 15px;
+      min-height: 150px;
+    }
+    .display-5 {
+      font-size: 2rem;
+    }
+    .lead {
+      font-size: 1.1rem;
+    }
+    .btn-professional {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+  .section-padding {
+    padding: 80px 0;
+  }
+  .no-animation * {
+    animation: none !important;
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+  }
+  .display-4 {
+    font-weight: 300;
+    color: #fff !important;
+  }
+  .display-5 {
+    color: #fff !important;
+  }
+  .lead {
+    color: #e0e0e0 !important;
+  }
+  .text-light {
+    color: #e0e0e0 !important;
+  }
+  .text-muted {
+    color: #b0b0b0 !important;
+  }
+  .text-white {
+    color: #fff !important;
+  }
+  .project-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.3s ease;
+    color: #fff;
+    overflow: hidden;
+  }
+  .project-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--bs-primary);
+    transform: translateY(-5px);
+  }
+  .project-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .project-image-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid var(--bs-primary);
+    overflow: hidden;
+  }
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: brightness(0.9);
+  }
+  .project-card:hover .project-image {
+    transform: scale(1.1);
+    filter: brightness(1);
+  }
+  .project-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .project-card:hover .project-image-overlay {
+    opacity: 1;
+  }
+  .project-image-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--bs-primary) 0%, #a855f7 50%, var(--bs-primary) 100%);
+    z-index: 10;
+    animation: shimmer 3s infinite;
+  }
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  /* Hobby Card Styles */
+  .hobby-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    transition: all 0.3s ease;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hobby-card:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: #00ff88;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+  }
+  .hobby-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+    overflow: hidden;
+  }
+  .hobby-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: brightness(0.8);
+  }
+  .hobby-card:hover .hobby-image {
+    transform: scale(1.1);
+    filter: brightness(1);
+  }
+  .hobby-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.7) 0%, rgba(0, 187, 255, 0.7) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .hobby-card:hover .hobby-image-overlay {
+    opacity: 1;
+  }
+  
+  /* GitHub Card Styles */
+  .github-card-container {
+    perspective: 1000px;
+  }
+  .github-card {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    border: 2px solid #30363d;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+  }
+  .github-card:hover {
+    transform: rotateX(2deg) rotateY(-2deg);
+    border-color: #58a6ff;
+    box-shadow: 
+      0 30px 60px rgba(88, 166, 255, 0.3),
+      0 0 100px rgba(88, 166, 255, 0.1);
+  }
+  .github-card-header {
+    background: #010409;
+    padding: 12px 16px;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .github-dots {
+    display: flex;
+    gap: 8px;
+  }
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .dot-red { background: #f85149; }
+  .dot-yellow { background: #fba61a; }
+  .dot-green { background: #3fb950; }
+  .github-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #58a6ff;
+    font-family: monospace;
+    font-weight: 600;
+  }
+  .github-card-body {
+    padding: 30px;
+  }
+  .code-preview {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .code-text {
+    color: #58a6ff;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    margin: 0;
+    text-align: left;
+  }
+  .github-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px;
+    background: rgba(88, 166, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  .stat-item:hover {
+    background: rgba(88, 166, 255, 0.2);
+    transform: translateY(-3px);
+  }
+  .stat-icon {
+    color: #58a6ff;
+    transition: all 0.3s ease;
+  }
+  .stat-icon.animate {
+    animation: icon-pulse 0.5s ease;
+  }
+  @keyframes icon-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  .stat-item span {
+    color: #c9d1d9;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .github-action {
+    margin-bottom: 20px;
+  }
+  .github-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  .github-button:hover {
+    background: linear-gradient(135deg, #2ea043 0%, #238636 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(46, 160, 67, 0.4);
+    border-color: #3fb950;
+  }
+  .github-footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #30363d;
+    color: #8b949e;
+    font-size: 14px;
+  }
+  .tech-badge {
+    background: rgba(99, 102, 241, 0.3);
+    color: #c7d2fe !important;
+    border: 1px solid rgba(99, 102, 241, 0.5);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .experience-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--bs-primary);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+  }
+  .experience-title {
+    color: #fff !important;
+    font-weight: 600;
+  }
+  .experience-company {
+    color: var(--bs-primary) !important;
+    font-weight: 500;
+  }
+  .experience-date {
+    color: #b0b0b0 !important;
+    font-size: 0.9rem;
+  }
+  .experience-description {
+    color: #e0e0e0 !important;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #fff !important;
+  }
+  p {
+    color: #e0e0e0 !important;
+  }
+  .badge {
+    color: #fff !important;
+  }
+  
+  /* Terminal Styles */
+  .terminal-window {
+    background: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    max-width: 500px;
+  }
+  .terminal-header {
+    background: #323232;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  .terminal-dot-red {
+    background: #ff5f56;
+  }
+  .terminal-dot-yellow {
+    background: #ffbd2e;
+  }
+  .terminal-dot-green {
+    background: #27c93f;
+  }
+  .terminal-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #999;
+    font-size: 12px;
+  }
+  .terminal-body {
+    padding: 20px;
+    min-height: 200px;
+  }
+  .terminal-text {
+    color: #0f0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .terminal-cursor {
+    animation: blink 1s infinite;
+    color: #0f0;
+    font-weight: bold;
+  }
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+</style><div class="no-animation"><nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"><div class="container"><a class="navbar-brand" href="#home">Chris Watkins</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link " href="#home">Home</a></li><li class="nav-item"><a class="nav-link active" href="#about">About</a></li><li class="nav-item"><a class="nav-link " href="#hire-video">Hire Video</a></li><li class="nav-item"><a class="nav-link " href="#experience">Experience</a></li><li class="nav-item"><a class="nav-link " href="#solutions">Solutions</a></li><li class="nav-item"><a class="nav-link " href="#projects">Projects</a></li><li class="nav-item"><a class="nav-link " href="#hobbies">Hobbies</a></li><li class="nav-item"><a class="nav-link " href="#source-code">Source Code</a></li><li class="nav-item"><a class="nav-link " href="#contact">Contact</a></li></ul></div></div></nav><section id="home" class="bg-gradient-primary min-vh-100 d-flex align-items-center"><div class="container"><div class="row align-items-center"><div class="col-lg-8"><h1 class="display-4 fw-bold mb-4">Principal Engineer &amp; Technical Leader</h1><p class="lead mb-4">I have close to 25 years of experience in the IT field. I've owned consulting comapnies, and worked for big corps. I’m passionate, adaptable, and technically hands-on. Available for principal engineer, staff engineer, or technical leadership roles.</p><div class="mb-4"><div class="terminal-window"><div class="terminal-header"><span class="terminal-dot terminal-dot-red"></span><span class="terminal-dot terminal-dot-yellow"></span><span class="terminal-dot terminal-dot-green"></span><span class="terminal-title">portfolio.sh</span></div><div class="terminal-body"><pre class="terminal-text">$ whoami
+chris_watkins
+$ experience --years
+20+
+$ skills --list
+linux, kubernetes, openshift, VMWare, aws, terraform, ansible, python, golang, php,c, c# 
+$ avai<span class="terminal-cursor">_</span></pre></div></div></div><div class="d-flex gap-3"><button class="btn btn-light btn-professional">Hire Me</button><button class="btn btn-outline-light btn-professional">View Projects</button></div></div><div class="col-lg-4 text-center"><img alt="Chris Watkins" class="profile-photo rounded-circle" src="/static/chris.webp"><div class="d-flex flex-wrap gap-3 mb-4"><span class="badge bg-primary fs-6 py-2 px-3">Functional Engineer</span></div></div></div></div></section><section id="about" class="section-padding" style="background: linear-gradient(135deg, rgb(240, 147, 251) 0%, rgb(245, 87, 108) 100%);"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 class="display-5 fw-bold mb-4 text-white">About Me</h2></div></div><div class="row"><div class="col-lg-10 offset-lg-1"><div class="card shadow-lg" style="border-radius: 20px; background: rgba(20, 20, 30, 0.95); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.2); transform: rotate(-1deg);"><div class="p-5" style="transform: rotate(1deg);"><p class="lead mb-4 text-white">I started as a developer and architect building enterprise systems across multiple industries - accounting platforms, inventory management, e-commerce integrations, shipping systems with FedEx and UPS, payment processing, you name it. Early on, I built a loyal client base ranging from boutique shops to enterprise operations, and I've kept many of them running and evolving for years - migrating them to cloud, rebuilding legacy systems, whatever they needed.</p><p class="lead mb-4 text-white">Mid-career, I decided to try corporate life. Started at Pitney Bowes as a Senior Engineer where I built and integrated hundreds of shipping platform integrations in C#. I was both leading the technical direction and writing the code. They closed my division exactly one year after hiring me. Moved to E*TRADE as a Principal, building infrastructure and integrating systems - platform scanning, VM automation, VMware integration. This was during COVID, so I was also gearing up the C-suite with reports and metrics on what they needed for a remote workforce. Then Morgan Stanley bought them. Went to IBM as a Senior Architect where I traveled the country working with banks and top-tier corporate divisions, focusing on OpenShift, Turbonomics, Instana, and WatsonX. I wasn't just designing solutions - I was implementing them. Then they gutted the 401k and restructured compensation.</p><p class="lead mb-4 text-white">After IBM, I went back to running my own practice. Spent a year mixing vacation with interesting projects for local and remote clients. Now I'm ready for the next lead role - bringing both the scrappy adaptability of a consultant and the process understanding of someone who's navigated multiple Fortune 500 environments. I know how to ship, how to scale, and how to deal with the reality of enterprise technology. I lead from the front - I can architect it, build it, and fix it myself.</p></div></div></div></div></div></section><section id="experience" class="section-padding section-gray"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 class="display-5 fw-bold mb-4">Professional Experience</h2><p class="lead">20+ years of enterprise technology leadership</p></div></div><div class="row"><div class="col-lg-12"><div class="d-flex flex-wrap gap-3 justify-content-center"><span class="badge bg-primary fs-6 p-3">Watkins Labs - Founder &amp; Principal Solutions Architect (January 2024 – Present)</span><span class="badge bg-primary fs-6 p-3">IBM Financial Services Division - Senior Site Reliability Engineer (July 2021 – January 2024)</span><span class="badge bg-primary fs-6 p-3">E*TRADE - Principal Site Reliability Engineer (June 2018 – February 2021)</span><span class="badge bg-primary fs-6 p-3">Insight Global - Senior Software Engineer (February 2018 – May 2018)</span><span class="badge bg-primary fs-6 p-3">Pitney Bowes - Senior Software Developer (January 2017 – February 2018)</span><span class="badge bg-primary fs-6 p-3">DataModerated - Founder &amp; Principal Solutions Architect (July 2001 – December 2016)</span></div></div></div></div></section><section id="hire-video" class="section-padding section-dark"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 class="display-5 fw-bold mb-4">Hire Me .. AI Generated Demo</h2><p class="lead">Created with Stable Diffusion, Google Veo 2, Facebook AudioGen &amp; Suno AI</p></div></div><div class="row justify-content-center"><div class="col-lg-10"><div class="ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/teLgCZQmHC0" title="Hire Me - AI Generated Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div><div class="text-center mt-4"><p class="text-light">This video demonstrates nothing more than me being creative with AI tooling. Anyone could do it, But I did it before the tools were mainstream.</p></div></div></div></div></section><section id="projects" class="section-padding section-dark"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 class="display-5 fw-bold mb-4">Open Source Projects</h2><p class="lead">Demonstrating technical depth across multiple domains</p></div></div><div class="mb-5"><h3 class="h3 mb-4 d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server me-2" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg>Enterprise Infrastructure</h3><div class="row"><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/chris17453/aws-mq-rdmq-ha" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="AWS MQ + RDMQ HA" class="project-image" src="/static/rqdm.png?v=1.0.1"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">AWS MQ + RDMQ HA</h5><a href="https://github.com/chris17453/aws-mq-rdmq-ha" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">High availability messaging infrastructure bridging AWS MQ and RDMQ for enterprise hybrid cloud environments</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">AWS MQ</span><span class="tech-badge">RDMQ</span><span class="tech-badge">Python</span></div></div></div></div><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/chris17453/homelab" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="Homelab Infrastructure" class="project-image" src="/static/homelab.png?v=1.0.1"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">Homelab Infrastructure</h5><a href="https://github.com/chris17453/homelab" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">Enterprise-grade home infrastructure with 3.5TB RAM, 306 cores running production-equivalent environments</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">Enterprise Hardware</span><span class="tech-badge">RedHat</span><span class="tech-badge">VMware</span></div></div></div></div><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/chris17453/cloud-seeder" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="Cloud Seeder" class="project-image" src="/static/cloud-seeder.png?v=1.0.1"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">Cloud Seeder</h5><a href="https://github.com/chris17453/cloud-seeder" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">Automated Rancher Kubernetes cluster deployment in VMware environments</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">Kubernetes</span><span class="tech-badge">VMware</span><span class="tech-badge">Rancher</span></div></div></div></div><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/chris17453/echomatrix" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="VOIP Integration" class="project-image" src="/static/voip.jpg?v=1.0.1"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">VOIP Integration</h5><a href="https://github.com/chris17453/echomatrix" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">Voice agent modules for SIP/FreePBX enterprise telephony systems</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">SIP</span><span class="tech-badge">FreePBX</span><span class="tech-badge">VOIP</span></div></div></div></div></div></div><div class="mb-5"><h3 class="h3 mb-4 d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award me-2" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>AI/ML Innovation</h3><div class="row"><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/chris17453/cgan-MNIST-refactored" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="CGAN MNIST Refactored" class="project-image" src="/static/minst.gif"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">CGAN MNIST Refactored</h5><a href="https://github.com/chris17453/cgan-MNIST-refactored" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">Custom AI model training for handwritten text recognition with AI-generated font capabilities</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">TensorFlow</span><span class="tech-badge">Python</span><span class="tech-badge">CGAN</span></div></div></div></div><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/chris17453/wp-rss-article-re-gen" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="WordPress AI Generator" class="project-image" src="/static/ai-article.jpg"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">WordPress AI Generator</h5><a href="https://github.com/chris17453/wp-rss-article-re-gen" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">Controlled AI article generation for WordPress with precision prompting and content management</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">WordPress</span><span class="tech-badge">AI APIs</span><span class="tech-badge">PHP</span></div></div></div></div><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/chris17453/imagetosvg" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="Image to SVG Converter" class="project-image" src="/static/img2svg.svg"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">Image to SVG Converter</h5><a href="https://github.com/chris17453/imagetosvg" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">AI-powered tool for converting images to scalable vector graphics</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">Python</span><span class="tech-badge">AI</span><span class="tech-badge">SVG Processing</span></div></div></div></div></div></div><div class="mb-5"><h3 class="h3 mb-4 d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code me-2" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg>Developer Productivity</h3><div class="row"><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/watkinslabs/flort" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="Flort CLI Tool" class="project-image" src="/static/flort.png"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">Flort CLI Tool</h5><a href="https://github.com/watkinslabs/flort" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">Command-line utility for concatenating files optimized for AI processing workflows</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">Python</span><span class="tech-badge">CLI</span></div></div></div></div><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/chris17453/ttygif" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="TTY to GIF" class="project-image" src="/static/ttygif.webp"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">TTY to GIF</h5><a href="https://github.com/chris17453/ttygif" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">Terminal session recorder that creates animated GIFs from text output</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">Python</span><span class="tech-badge">Terminal Processing</span></div></div></div></div><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://marketplace.visualstudio.com/search?term=watkins%20labs&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="VS Code Extensions" class="project-image" src="/static/theme.png"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">VS Code Extensions</h5><a href="https://marketplace.visualstudio.com/search?term=watkins%20labs&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">File transfer utility and Flort integration for VS Code, plus 50+ published themes</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">TypeScript</span><span class="tech-badge">VS Code API</span></div></div></div></div></div></div><div class="mb-5"><h3 class="h3 mb-4 d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users me-2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>Database Innovation</h3><div class="row"><div class="col-lg-6 mb-4"><div class="card project-card h-100 p-0 overflow-hidden"><a href="https://github.com/chris17453/ddb" target="_blank" rel="noopener noreferrer" class="project-image-wrapper"><div class="project-image-frame"><img alt="DDB Database Engine" class="project-image" src="/static/ddb.png"><div class="project-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github text-white" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></div></div></a><div class="p-4"><div class="d-flex justify-content-between align-items-start mb-3"><h5 class="text-light">DDB Database Engine</h5><a href="https://github.com/chris17453/ddb" class="text-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a></div><p class="text-light small mb-3">Stateless database engine providing SQL interface for flat files, adopted by multiple global organizations</p><div class="d-flex flex-wrap gap-2"><span class="tech-badge">Python</span><span class="tech-badge">SQL</span><span class="tech-badge">File Processing</span></div></div></div></div></div></div><div class="mt-5"><h3 class="h3 mb-4 d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play me-2" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>Technical Demonstrations</h3><div class="row"><div class="col-lg-6 mb-4"><div class="card project-card p-0 overflow-hidden"><div class="ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/JJKnIDl8ob0" title="Technical Deep Dive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div><div class="p-4"><h5 class="text-light">Technical Deep Dive</h5><p class="text-light small">Demonstrating complex system integration and problem-solving approach</p></div></div></div><div class="col-lg-6 mb-4"><div class="card project-card p-0 overflow-hidden"><div class="ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/tTli8XvmKPs" title="Infrastructure Automation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div><div class="p-4"><h5 class="text-light">Infrastructure Automation</h5><p class="text-light small">Live automation and deployment workflows in action</p></div></div></div></div></div></div></section><section id="hobbies" class="section-padding section-dark"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 class="display-5 fw-bold mb-4">Hardware &amp; Creative Projects</h2><p class="lead">When I'm not writing code, I'm building things that blink, beep, and occasionally explode</p></div></div><div class="row"><div class="col-lg-4 mb-4"><div class="card hobby-card h-100 p-0 overflow-hidden"><div class="hobby-image-wrapper"><img alt="ESP32 Rack LED Bar" class="hobby-image" src="static/led-bar.gif"><div class="hobby-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu text-white" aria-hidden="true"><path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect></svg></div></div><div class="p-4"><h5 class="text-light mb-3">ESP32 Rack LED Bar</h5><p class="text-light small mb-3">Custom-built LED status bar for server racks using ESP32 microcontroller. Real-time monitoring with addressable RGB LEDs for visual system status.</p><a href="https://github.com/chris17453/ESP32LedRackBar" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm d-inline-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github me-2" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>View Code</a></div></div></div><div class="col-lg-4 mb-4"><div class="card hobby-card h-100 p-0 overflow-hidden"><div class="hobby-image-wrapper"><img alt="Synthra AI Webcam" class="hobby-image" src="https://img.youtube.com/vi/ORrxxhilm2M/maxresdefault.jpg"><div class="hobby-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles text-white" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg></div></div><div class="p-4"><h5 class="text-light mb-3">Synthra AI Webcam</h5><p class="text-light small mb-3">AI-powered webcam for Linux that adds real-time effects and filters using machine learning. Creates virtual camera devices for streaming.</p><a href="https://www.youtube.com/watch?v=ORrxxhilm2M&amp;t=19s" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm d-inline-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube me-2" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>View Demo</a></div></div></div><div class="col-lg-4 mb-4"><div class="card hobby-card h-100 p-0 overflow-hidden"><div class="hobby-image-wrapper"><img alt="Injectomatic" class="hobby-image" src="https://img.youtube.com/vi/95b1C7n4zQc/maxresdefault.jpg"><div class="hobby-image-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-keyboard text-white" aria-hidden="true"><path d="M10 8h.01"></path><path d="M12 12h.01"></path><path d="M14 8h.01"></path><path d="M16 12h.01"></path><path d="M18 8h.01"></path><path d="M6 8h.01"></path><path d="M7 16h10"></path><path d="M8 12h.01"></path><rect width="20" height="16" x="2" y="4" rx="2"></rect></svg></div></div><div class="p-4"><h5 class="text-light mb-3">Injectomatic</h5><p class="text-light small mb-3">Micro keyboard device for auto-generating commit messages. Hardware solution for developers who hate writing commit messages.</p><a href="https://www.youtube.com/watch?v=95b1C7n4zQc" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm d-inline-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube me-2" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>View Demo</a></div></div></div></div></div></section><section id="source-code" class="section-padding section-source"><div class="container position-relative"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 class="display-5 fw-bold mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal me-3" aria-hidden="true" style="vertical-align: middle;"><path d="M12 19h8"></path><path d="m4 17 6-6-6-6"></path></svg>Steal This Site's Code</h2><p class="lead">Full source available • MIT Licensed • Fork it, break it, make it better</p></div></div><div class="row justify-content-center"><div class="col-lg-10"><div class="github-card-container"><div class="github-card"><div class="github-card-header"><div class="github-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div><div class="github-title">chrisworks.dev</div></div><div class="github-card-body"><div class="code-preview"><pre class="code-text">&lt;Portfolio&gt;
+  &lt;Experience years={25} /&gt;
+  &lt;Projects count={148} status="open-source" /&gt;
+  &lt;Coffee cups={335} /&gt;
+  &lt;Bugs fixed="eventually" /&gt;
+&lt;/Portfolio&gt;</pre></div><div class="github-stats"><div class="stat-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-commit-horizontal stat-icon" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><line x1="3" x2="9" y1="12" y2="12"></line><line x1="15" x2="21" y1="12" y2="12"></line></svg><span>Clean Code</span></div><div class="stat-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch stat-icon" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg><span>Well Structured</span></div><div class="stat-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-pull-request stat-icon" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg><span>PR Welcome</span></div><div class="stat-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star stat-icon" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg><span>Star Worthy</span></div></div><div class="github-action"><a href="https://github.com/chris17453/chrisworks.dev" target="_blank" rel="noopener noreferrer" class="github-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github me-2" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg><span>Clone This Portfolio</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code ms-2" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg></a></div><div class="github-footer"><p class="mb-0"><span class="text-success">●</span> Active development<span class="mx-3">|</span>React + Bootstrap<span class="mx-3">|</span><span class="text-warning">⚡</span> Performance optimized</p></div></div></div></div></div></div></div></section><section id="contact" class="section-padding section-contact"><div class="container"><div class="row"><div class="col-lg-12 text-center mb-5"><h2 class="display-5 fw-bold mb-4 text-white">Ready to Solve Your Next Challenge</h2><p class="lead text-white">Available for principal engineer, staff engineer, or technical leadership roles. Remote preferred, open to hybrid arrangements.</p></div></div><div class="row justify-content-center"><div class="col-lg-8"><div class="row"><div class="col-lg-6 mb-4"><div class="card contact-card p-4 h-100"><h4 class="text-white mb-3">What I'm Looking For</h4><ul class="list-unstyled text-white"><li class="mb-2">• Hard problems with no clear playbook</li><li class="mb-2">• Enterprise systems worth building</li><li class="mb-2">• Teams that value adaptability</li></ul></div></div><div class="col-lg-6 mb-4"><div class="card contact-card p-4 h-100"><h4 class="text-white mb-3">What You Get</h4><ul class="list-unstyled text-white"><li class="mb-2">• 20 years of problem solving experience</li><li class="mb-2">• Deep technical skills across the stack</li><li class="mb-2">• Enterprise architecture expertise</li><li class="mb-2">• Someone who adapts to needs</li></ul></div></div></div><div class="text-center mt-4"><div class="d-flex flex-wrap justify-content-center gap-3"><a href="mailto:chris@watkinslabs.com" class="contact-link-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail me-2" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>chris@watkinslabs.com</a><a href="tel:(877) 731-4155" class="contact-link-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone me-2" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>(877) 731-4155</a><a href="https://watkinslabs.com" class="contact-link-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link me-2" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>watkinslabs.com</a><a href="https://www.linkedin.com/in/chris17453/recent-activity/all/" class="contact-link-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link me-2" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>LinkedIn Stalking</a></div><div class="mt-3"><span class="text-white d-flex align-items-center justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin me-2" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Sugar Hill, GA</span></div></div></div></div></div></section><footer class="bg-dark py-4"><div class="container text-center"><p class="text-muted mb-0">© 2025 Chris Watkins. Ready to solve your enterprise challenges.</p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script></body></html>

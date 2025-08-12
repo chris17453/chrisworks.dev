@@ -30,7 +30,7 @@ export const contact_section = ({ email_addr }) => (
               <div className="card contact-card p-4 h-100">
                 <h4 className="text-white mb-3">What You Get</h4>
                 <ul className="list-unstyled text-white">
-                  <li className="mb-2">• 20 years of problem solving experience</li>
+                  <li className="mb-2">• 25 years of problem solving experience</li>
                   <li className="mb-2">• Deep technical skills across the stack</li>
                   <li className="mb-2">• Enterprise architecture expertise</li>
                   <li className="mb-2">• Someone who adapts to needs</li>

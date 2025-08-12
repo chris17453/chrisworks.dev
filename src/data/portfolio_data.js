@@ -1,6 +1,9 @@
 // data/portfolio_data.js
 import { Server, Award, Code, Users } from 'lucide-react';
 
+// Cache buster version - update this when images change
+const img_version = '1.0.1';
+
 export const professional_experience = [
   {
     title: "Founder & Principal Solutions Architect",
@@ -44,18 +47,7 @@ export const professional_experience = [
     ],
     tech: ["Terraform", "Ansible", "Kubernetes", "Python", "VMware", "AWS", "Prometheus"]
   },
-  {
-    title: "Senior Software Engineer",
-    company: "Insight Global",
-    date: "February 2018 – May 2018",
-    location: "Atlanta, GA", 
-    description: "Modernized legacy build environments through containerization and CI/CD pipeline development.",
-    achievements: [
-      "Redesigned outdated build systems using modern container technologies",
-      "Contributed to enterprise message bus development for third-party system connectivity"
-    ],
-    tech: ["Docker", "Ansible", "Terraform", "Kafka"]
-  },
+
   {
     title: "Senior Software Developer",
     company: "Pitney Bowes",
@@ -122,28 +114,28 @@ export const project_categories = [
         description: "High availability messaging infrastructure bridging AWS MQ and RDMQ for enterprise hybrid cloud environments",
         url: "https://github.com/chris17453/aws-mq-rdmq-ha",
         tech: ["AWS MQ", "RDMQ", "Python"],
-        image: "/static/rqdm.png"
+        image: `/static/rqdm.png?v=${img_version}`
       },
       {
         name: "Homelab Infrastructure",
         description: "Enterprise-grade home infrastructure with 3.5TB RAM, 306 cores running production-equivalent environments",
         url: "https://github.com/chris17453/homelab",
         tech: ["Enterprise Hardware", "RedHat", "VMware"],
-        image: "/static/homelab.png"
+        image: `/static/homelab.png?v=${img_version}`
       },
       {
         name: "Cloud Seeder",
         description: "Automated Rancher Kubernetes cluster deployment in VMware environments",
         url: "https://github.com/chris17453/cloud-seeder",
         tech: ["Kubernetes", "VMware", "Rancher"],
-        image: "/static/cloud-seeder.png"
+        image: `/static/cloud-seeder.png?v=${img_version}`
       },
       {
         name: "VOIP Integration",
         description: "Voice agent modules for SIP/FreePBX enterprise telephony systems",
         url: "https://github.com/chris17453/echomatrix",
         tech: ["SIP", "FreePBX", "VOIP"],
-        image: "/static/voip.jpg"
+        image: `/static/voip.jpg?v=${img_version}`
       }
     ]
   },
@@ -190,7 +182,7 @@ export const project_categories = [
         description: "Terminal session recorder that creates animated GIFs from text output",
         url: "https://github.com/chris17453/ttygif",
         tech: ["Python", "Terminal Processing"],
-        image: "/static/ttygif.gif"
+        image: "/static/ttygif.webp"
       },
       {
         name: "VS Code Extensions",
@@ -207,7 +199,7 @@ export const project_categories = [
     projects: [
       {
         name: "DDB Database Engine",
-        description: "Stateless database engine providing SQL interface for flat files, adopted by multiple global organizations",
+        description: "Stateless database engine providing SQL interface for flat files, adopted by multiple global organizations. E-Trade, IBM, HP",
         url: "https://github.com/chris17453/ddb",
         tech: ["Python", "SQL", "File Processing"],
         image: "/static/ddb.png"

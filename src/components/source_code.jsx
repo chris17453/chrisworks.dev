@@ -19,7 +19,7 @@ export const SourceCodeSection = () => {
           <div className="col-lg-12 text-center mb-5">
             <h2 className="display-5 fw-bold mb-4">
               <Terminal className="me-3" size={48} style={{ verticalAlign: 'middle' }} />
-              View This Site's Code
+              Steal This Site's Code
             </h2>
             <p className="lead">Full source available • MIT Licensed • Fork it, break it, make it better</p>
           </div>
@@ -45,8 +45,8 @@ export const SourceCodeSection = () => {
                   <div className="code-preview">
                     <pre className="code-text">
 {`<Portfolio>
-  <Experience years={20} />
-  <Projects count={11} status="open-source" />
+  <Experience years={25} />
+  <Projects count={148} status="open-source" />
   <Coffee cups={${commit_count}} />
   <Bugs fixed="eventually" />
 </Portfolio>`}

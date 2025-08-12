@@ -46,7 +46,7 @@ const hobby_card = ({ hobby }) => (
 
 export const hobbies_section = ({ hobbies_data }) => {
   return (
-    <section id="hobbies" className="section-padding section-dark">
+    <section id="hobbies" className="section-padding section-hobbies">
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center mb-5">

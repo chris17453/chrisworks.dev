@@ -2,7 +2,7 @@
 import React from 'react';
 
 export const video_section = () => (
-  <section id="hire-video" className="section-padding section-dark">
+  <section id="hire-video" className="section-padding section-video">
     <div className="container">
       <div className="row">
         <div className="col-lg-12 text-center mb-5">
@@ -22,7 +22,7 @@ export const video_section = () => (
             ></iframe>
           </div>
           <div className="text-center mt-4">
-            <p className="text-light">This video demonstrates nothing more than me being creative with AI tooling. Anyone could do it, But I did it before the tools were mainstream.</p>
+            <p className="text-light">This video demonstrates nothing more than me being creative with AI tooling as an early adopter.</p>
           </div>
         </div>
       </div>

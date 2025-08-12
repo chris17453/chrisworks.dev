@@ -6,14 +6,13 @@ import { hero_section } from './components/hero';
 import { about_section } from './components/about';
 import { experience_section } from './components/experience';
 import { video_section } from './components/video';
-import { solutions_section } from './components/solutions';
 import { projects_section } from './components/projects';
 import { hobbies_section } from './components/hobbies';
 import { source_code_section } from './components/source_code';
 import { contact_section } from './components/contact';
 import { footer_component } from './components/footer';
 import { portfolio_styles } from './styles/portfolio_styles';
-import { professional_experience, enterprise_solutions, project_categories, hobbies_data } from './data/portfolio_data';
+import { professional_experience, project_categories, hobbies_data } from './data/portfolio_data';
 
 const Portfolio = () => {
   const [active_section, set_active_section] = useState('home');
@@ -108,7 +107,6 @@ const Portfolio = () => {
         {about_section()}
         {experience_section({ professional_experience })}
         {video_section()}
-        {solutions_section({ enterprise_solutions })}
         {projects_section({ project_categories })}
         {hobbies_section({ hobbies_data })}
         {source_code_section()}
