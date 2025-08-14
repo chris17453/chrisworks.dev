@@ -1,4 +1,3 @@
-// components/projects.jsx
 import React from 'react';
 import { Github, Play } from 'lucide-react';
 
@@ -7,7 +6,7 @@ const project_card = ({ project }) => (
     <div className="card project-card h-100 p-0 overflow-hidden">
       <a href={project.url} target="_blank" rel="noopener noreferrer" className="project-image-wrapper">
         <div className="project-image-frame">
-          <img 
+          <img
             src={project.image || `https://via.placeholder.com/600x400/1a1a2e/6366f1?text=${encodeURIComponent(project.name)}`}
             alt={project.name}
             className="project-image"
@@ -38,16 +37,16 @@ const project_card = ({ project }) => (
   </div>
 );
 
-export const projects_section = ({ project_categories }) => (
+export const ProjectsSection = ({ project_categories, data }) => (
   <section id="projects" className="section-padding section-projects">
     <div className="container">
       <div className="row">
         <div className="col-lg-12 text-center mb-5">
-          <h2 className="display-5 fw-bold mb-4">Open Source Projects</h2>
-          <p className="lead">Demonstrating technical depth across multiple domains</p>
+          <h2 className="display-5 fw-bold mb-4">{data.title}</h2>
+          <p className="lead">{data.subtitle}</p>
         </div>
       </div>
-      
+
       {project_categories.map((category, cat_index) => (
         <div key={cat_index} className="mb-5">
           <h3 className="h3 mb-4 d-flex align-items-center">
@@ -61,47 +60,32 @@ export const projects_section = ({ project_categories }) => (
           </div>
         </div>
       ))}
-      
+
       <div className="mt-5">
         <h3 className="h3 mb-4 d-flex align-items-center">
           <Play className="me-2" size={20} />
-          Technical Demonstrations
+          {data.technical_demos.title}
         </h3>
         <div className="row">
-          <div className="col-lg-6 mb-4">
-            <div className="card project-card p-0 overflow-hidden">
-              <div className="ratio ratio-16x9">
-                <iframe 
-                  src="https://www.youtube.com/embed/JJKnIDl8ob0" 
-                  title="Technical Deep Dive"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="p-4">
-                <h5 className="text-light">Technical Deep Dive</h5>
-                <p className="text-light small">Demonstrating complex system integration and problem-solving approach</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-6 mb-4">
-            <div className="card project-card p-0 overflow-hidden">
-              <div className="ratio ratio-16x9">
-                <iframe 
-                  src="https://www.youtube.com/embed/tTli8XvmKPs" 
-                  title="Infrastructure Automation"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="p-4">
-                <h5 className="text-light">Infrastructure Automation</h5>
-                <p className="text-light small">Live automation and deployment workflows in action</p>
+          {data.technical_demos.videos.map((video, index) => (
+            <div key={index} className="col-lg-6 mb-4">
+              <div className="card project-card p-0 overflow-hidden">
+                <div className="ratio ratio-16x9">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.youtube_id}`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="p-4">
+                  <h5 className="text-light">{video.title}</h5>
+                  <p className="text-light small">{video.description}</p>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

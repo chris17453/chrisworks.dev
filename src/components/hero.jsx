@@ -2,31 +2,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Mail } from 'lucide-react';
 
-const TerminalTypewriter = () => {
+const TerminalTypewriter = ({ data }) => {
   const [display_text, set_display_text] = useState('');
   const [current_line, set_current_line] = useState(0);
   const [typing, set_typing] = useState(true);
-  const terminal_ref = useRef(null);  // Add ref for scrolling
+  const terminal_ref = useRef(null);
 
-  const terminal_lines = [
-    '$ whoami',
-    'chris_watkins',
-    '$ experience --years',
-    '24+',
-    '$ skills --list',
-    'linux, kubernetes, openshift, VMWare, aws, terraform, ansible, python, golang, php, c, c# ' ,
-    '$ availability --status',
-    'ready_for_new_challenges',
-    '$ contact --hire',
-    'Initializing connection...'
-  ];
+  const terminal_lines = data.lines;
+  const typing_speed = data.typing_speed || 50;
+  const line_delay = data.line_delay || 800;
+  const loop_delay = data.loop_delay || 3000;
 
   useEffect(() => {
     if (current_line >= terminal_lines.length) {
       setTimeout(() => {
         set_display_text('');
         set_current_line(0);
-      }, 3000);
+      }, loop_delay);
       return;
     }
 
@@ -51,18 +43,18 @@ const TerminalTypewriter = () => {
         clearInterval(typing_interval);
         setTimeout(() => {
           set_current_line(prev => prev + 1);
-        }, 800);
+        }, line_delay);
       }
-    }, 50);
+    }, typing_speed);
 
     return () => clearInterval(typing_interval);
-  }, [current_line]);
+  }, [current_line, terminal_lines, typing_speed, line_delay, loop_delay]);
 
   useEffect(() => {
     if (terminal_ref.current) {
       terminal_ref.current.scrollTop = terminal_ref.current.scrollHeight;
     }
-  }, [display_text]);  // Scroll whenever text updates
+  }, [display_text]);
 
   return (
     <div className="terminal-window">
@@ -81,102 +73,118 @@ const TerminalTypewriter = () => {
   );
 };
 
-export const hero_section = ({ scroll_to_section }) => (
-  <section id="home" className="hero-section bg-gradient-primary min-vh-100 d-flex align-items-center">
-    <div className="container">
-      <div className="row align-items-center">
-        <div className="col-lg-8">
-        <h1 className="display-4 fw-bold mb-3">Looking for work...</h1>
-        <h2 className="display-4 fw-bold mb-3">IT Engineer & Leader</h2>
-          
-          {/* Quick contact info - animated badges */}
-          <div className="d-flex gap-3 mb-4">
-            <a 
-              href="tel:8777314155" 
-              className="text-decoration-none"
-              style={{
-                position: 'relative',
-                display: 'inline-flex',
-                alignItems: 'center',
-                color: 'white',
-                fontSize: '0.90rem',
-                fontWeight: 'bold',
-                transition: 'all 0.3s ease',
-                overflow: 'hidden',
-                animation: '2s ease-in-out infinite alternate',
-                whiteSpace: 'nowrap'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              }}
-             
-            >
-              <Phone size={16} className="me-2" />
-              (877) 731-4155
-            </a>
-            <a 
-              href="mailto:chris@watkinslabs.com" 
-              className="text-decoration-none"
-              style={{
-                position: 'relative',
-                display: 'inline-flex',
-                alignItems: 'center',
-                color: 'white',
-                fontSize: '0.90rem',
-                fontWeight: 'bold',
-                transition: 'all 0.3s ease',
-                overflow: 'hidden',
-                animation: '2s ease-in-out infinite alternate',
-                whiteSpace: 'nowrap'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              }}
-            >
-              <Mail size={16} className="me-2" />
-              chris@watkinslabs.com
-            </a>
-          </div>
-          
-          <style jsx>{`
-            @keyframes glow {
-              from {
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-              }
-              to {
-                box-shadow: 0 4px 30px rgba(42,82,152,0.6), 0 0 20px rgba(42,82,152,0.4);
-              }
-            }
-          `}</style>
-          
-          <p className="lead mb-4">
-          I have close to 25 years of experience in the IT field. I've owned consulting companies, and worked for big corps. I'm passionate,
-          adaptable, and technically hands-on. Available for principal engineer, staff engineer, or technical leadership roles.
-          </p>
+export const HeroSection = ({ data, personal, scroll_to_section }) => {
+  const email = `${personal.email_user}@${personal.email_domain}`;
+  
+  const handle_cta_click = (action) => {
+    if (action) {
+      scroll_to_section(action);
+    }
+  };
 
-          <div className="mb-4">
-            {TerminalTypewriter()}
-          </div>
+  return (
+    <section id="home" className="hero-section bg-gradient-primary min-vh-100 d-flex align-items-center">
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-lg-8">
+            <h1 className="display-4 fw-bold mb-3">{data.status_message}</h1>
+            <h2 className="display-4 fw-bold mb-3">{data.headline}</h2>
 
-          <div className="d-flex gap-3">
-            <button className="btn btn-light btn-professional" onClick={() => scroll_to_section('contact')}>
-              Hire Me
-            </button>
-            <button className="btn btn-outline-light btn-professional" onClick={() => scroll_to_section('projects')}>
-              View Projects
-            </button>
+            {/* Quick contact info - animated badges */}
+            <div className="d-flex gap-3 mb-4">
+              <a
+                href={`tel:${personal.phone.replace(/[^0-9]/g, '')}`}
+                className="text-decoration-none"
+                style={{
+                  position: 'relative',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  color: 'white',
+                  fontSize: '0.90rem',
+                  fontWeight: 'bold',
+                  transition: 'all 0.3s ease',
+                  overflow: 'hidden',
+                  animation: '2s ease-in-out infinite alternate',
+                  whiteSpace: 'nowrap'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                }}
+              >
+                <Phone size={16} className="me-2" />
+                {personal.phone}
+              </a>
+              <a
+                href={`mailto:${email}`}
+                className="text-decoration-none"
+                style={{
+                  position: 'relative',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  color: 'white',
+                  fontSize: '0.90rem',
+                  fontWeight: 'bold',
+                  transition: 'all 0.3s ease',
+                  overflow: 'hidden',
+                  animation: '2s ease-in-out infinite alternate',
+                  whiteSpace: 'nowrap'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                }}
+              >
+                <Mail size={16} className="me-2" />
+                {email}
+              </a>
+            </div>
+
+            <style jsx>{`
+              @keyframes glow {
+                from {
+                  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                }
+                to {
+                  box-shadow: 0 4px 30px rgba(42,82,152,0.6), 0 0 20px rgba(42,82,152,0.4);
+                }
+              }
+            `}</style>
+
+            <p className="lead mb-4">{data.intro_text}</p>
+
+            <div className="mb-4">
+              {TerminalTypewriter({ data: data.terminal_animation })}
+            </div>
+
+            <div className="d-flex gap-3">
+              <button 
+                className="btn btn-light btn-professional" 
+                onClick={() => handle_cta_click(data.cta_primary.action)}
+              >
+                {data.cta_primary.text}
+              </button>
+              <button 
+                className="btn btn-outline-light btn-professional" 
+                onClick={() => handle_cta_click(data.cta_secondary.action)}
+              >
+                {data.cta_secondary.text}
+              </button>
+            </div>
+          </div>
+          <div className="col-lg-4 text-center">
+            <img 
+              src={personal.profile_image} 
+              alt={personal.full_name} 
+              className="profile-photo rounded-circle" 
+            />
           </div>
         </div>
-        <div className="col-lg-4 text-center">
-          <img src="/static/chris.webp" alt="Chris Watkins" className="profile-photo rounded-circle" />
-          </div>
-        </div>
-    </div>
-  </section>
-);
+      </div>
+    </section>
+  );
+};

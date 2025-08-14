@@ -1,58 +1,50 @@
 // App.js
 import { set_document_title, set_meta_name, set_meta_prop, set_link_rel, set_json_ld } from './utils/head_manager';
 import React, { useEffect, useMemo, useState } from 'react';
-import { navigation_component } from './components/navigation';
-import { footer_component } from './components/footer';
+import { NavigationComponent } from './components/navigation';
+import { FooterComponent } from './components/footer';
 import { portfolio_styles } from './styles/portfolio_styles';
 import { site_sections, get_enabled_sections, get_section_ids } from './data/site_config';
+import { site_data, process_template, get_email, get_template_vars } from './data/site_data';
 
 const Portfolio = () => {
   const [active_section, set_active_section] = useState('home');
-  const email_addr = useMemo(() => 'chris' + '@' + 'watkinslabs' + '.' + 'com', []);
+  const email_addr = useMemo(() => get_email(), []);
+  const template_vars = useMemo(() => get_template_vars(), []);
 
-  const person_json_ld = (email_addr) => ({
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Chris Watkins",
-    "url":"https://chrisworks.dev/",
-    "image":"https://chrisworks.dev/static/chris.webp",
-    "sameAs":[ "https://github.com/chris17453", "https://www.linkedin.com/in/YOUR_LINKEDIN" ],
-    "jobTitle":"Principal Engineer",
-    "email":"mailto:" + email_addr,
-    "worksFor":{"@type":"Organization","name":"Watkins Labs"},
-    "knowsAbout":["Linux","Kubernetes","AWS","SRE","AI/ML","Networking","Security"]
-  });
+  // Process structured data with template variables
+  const person_json_ld = useMemo(() => {
+    const template = JSON.stringify(site_data.structured_data.person);
+    const processed = process_template(template, template_vars);
+    return JSON.parse(processed);
+  }, [template_vars]);
 
-  const website_json_ld = {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "url":"https://chrisworks.dev/",
-    "name":"Chris Watkins Portfolio",
-    "potentialAction": {
-      "@type":"SearchAction",
-      "target":"https://chrisworks.dev/?q={search_term_string}",
-      "query-input":"required name=search_term_string"
-    }
-  };
+  const website_json_ld = useMemo(() => {
+    const template = JSON.stringify(site_data.structured_data.website);
+    const processed = process_template(template, template_vars);
+    return JSON.parse(processed);
+  }, [template_vars]);
 
+  // Set all meta tags from data
   useEffect(() => {
-    set_document_title('chris watkins ... principal engineer ... linux + backend');
-    set_meta_name('description', 'principal engineer ... 20+ years ... linux, kubernetes, aws, ai/ml ... built infra for finance at scale.');
-    set_meta_prop('og:title', 'chris watkins ... principal engineer');
-    set_meta_prop('og:description', 'linux + backend ... enterprise scale ... projects, case studies, contact.');
-    set_meta_prop('og:image', 'https://chrisworks.dev/static/og.png');
-    set_meta_prop('og:url', 'https://chrisworks.dev/');
-    set_meta_name('twitter:title', 'chris watkins ... principal engineer');
-    set_meta_name('twitter:description', 'linux + backend ... enterprise scale.');
-    set_meta_name('twitter:image', 'https://chrisworks.dev/static/og.png');
-    set_link_rel('canonical', 'https://chrisworks.dev/');
-    set_link_rel('me', 'https://github.com/chris17453');
-    set_link_rel('alternate', '/rss.xml');
-    set_link_rel('sitemap', '/sitemap.xml');
-    set_json_ld('person_ld', person_json_ld(email_addr));
+    set_document_title(site_data.meta.title);
+    set_meta_name('description', site_data.meta.description);
+    set_meta_prop('og:title', site_data.meta.og_title);
+    set_meta_prop('og:description', site_data.meta.og_description);
+    set_meta_prop('og:image', site_data.meta.og_image);
+    set_meta_prop('og:url', site_data.meta.url);
+    set_meta_name('twitter:title', site_data.meta.twitter_title);
+    set_meta_name('twitter:description', site_data.meta.twitter_description);
+    set_meta_name('twitter:image', site_data.meta.og_image);
+    set_link_rel('canonical', site_data.meta.canonical);
+    set_link_rel('me', site_data.meta.github_profile);
+    set_link_rel('alternate', site_data.meta.rss_feed);
+    set_link_rel('sitemap', site_data.meta.sitemap);
+    set_json_ld('person_ld', person_json_ld);
     set_json_ld('website_ld', website_json_ld);
-  }, [email_addr]);
+  }, [person_json_ld, website_json_ld]);
 
+  // Bootstrap loading
   useEffect(() => {
     if (!document.querySelector('link[href*="bootstrap"]')) {
       const bootstrap_link = document.createElement('link');
@@ -68,6 +60,7 @@ const Portfolio = () => {
     }
   }, []);
 
+  // Scroll handling
   useEffect(() => {
     const handle_scroll = () => {
       const sections = get_section_ids();
@@ -89,10 +82,12 @@ const Portfolio = () => {
     document.getElementById(section_id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Context object to pass to components that need it
+  // Context object to pass to components
   const context = {
     scroll_to_section,
-    email_addr
+    email_addr,
+    site_data,
+    template_vars
   };
 
   // Get enabled sections
@@ -103,16 +98,24 @@ const Portfolio = () => {
       <style>{portfolio_styles}</style>
 
       <div className="no-animation">
-        {navigation_component({ active_section, scroll_to_section })}
-        
+        {NavigationComponent({ 
+          active_section, 
+          scroll_to_section,
+          data: site_data.navigation,
+          personal: site_data.personal
+        })}
+
         {/* Dynamically render all enabled sections */}
         {enabled_sections.map(section => {
           const Component = section.component;
           const props = section.props(context);
           return <Component key={section.id} {...props} />;
         })}
-        
-        {footer_component()}
+
+        {FooterComponent({
+          data: site_data.footer,
+          personal: site_data.personal
+        })}
       </div>
     </>
   );

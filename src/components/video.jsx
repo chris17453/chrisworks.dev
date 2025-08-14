@@ -1,28 +1,27 @@
-// components/video.jsx
 import React from 'react';
 
-export const video_section = () => (
+export const VideoSection = ({ data }) => (
   <section id="hire-video" className="section-padding section-video">
     <div className="container">
       <div className="row">
         <div className="col-lg-12 text-center mb-5">
-          <h2 className="display-5 fw-bold mb-4">Hire Me .. AI Generated Demo</h2>
-          <p className="lead">Created with Stable Diffusion, Google Veo 2, Facebook AudioGen & Suno AI, and automation. No one click interface was available, this was entirely me, the tools and the command line.</p>
+          <h2 className="display-5 fw-bold mb-4">{data.title}</h2>
+          <p className="lead">{data.description}</p>
         </div>
       </div>
       <div className="row justify-content-center">
         <div className="col-lg-10">
           <div className="ratio ratio-16x9">
-            <iframe 
-              src="https://www.youtube.com/embed/teLgCZQmHC0" 
-              title="Hire Me - AI Generated Video"
+            <iframe
+              src={`https://www.youtube.com/embed/${data.youtube_id}`}
+              title={data.title}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
           </div>
           <div className="text-center mt-4">
-            <p className="text-light">This video demonstrates nothing more than me being creative with AI tooling as an early adopter.</p>
+            <p className="text-light">{data.caption}</p>
           </div>
         </div>
       </div>
