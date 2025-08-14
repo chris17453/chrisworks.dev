@@ -1,9 +1,9 @@
+// components/navigation.jsx
 import React from 'react';
+import { get_nav_sections } from '../data/site_config';
 
 export const navigation_component = ({ active_section, scroll_to_section }) => {
-  const format_section_name = (section) => {
-    return section.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-  };
+  const nav_sections = get_nav_sections();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -16,12 +16,12 @@ export const navigation_component = ({ active_section, scroll_to_section }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            {['home', 'about', 'experience', 'hire-video',  'projects', 'hobbies', 'source-code', 'contact'].map(section => (
-              <li key={section} className="nav-item">
-                <a className={`nav-link ${active_section === section ? 'active' : ''}`}
-                   href={`#${section}`} 
-                   onClick={(e) => { e.preventDefault(); scroll_to_section(section); }}>
-                  {format_section_name(section)}
+            {nav_sections.map(section => (
+              <li key={section.id} className="nav-item">
+                <a className={`nav-link ${active_section === section.id ? 'active' : ''}`}
+                   href={`#${section.id}`}
+                   onClick={(e) => { e.preventDefault(); scroll_to_section(section.id); }}>
+                  {section.name}
                 </a>
               </li>
             ))}

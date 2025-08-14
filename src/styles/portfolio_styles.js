@@ -156,6 +156,7 @@ export const portfolio_styles = `
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
   .profile-photo {
+    margin-top:40px;
     width: 250px;
     height: 250px;
     max-width: 100%;
@@ -165,15 +166,16 @@ export const portfolio_styles = `
   }
   .hero-section {
     min-height: 100vh;
-    padding-top: 80px;
-    padding-bottom: 40px;
+    padding-top: 50px;  /* Increased from 80px */
+    padding-bottom: 80px; /* Increased from 40px */
   }
+
+
   @media (max-width: 768px) {
     .hero-section {
       min-height: auto;
-      padding-top: 100px;
-      padding-bottom: 60px;
-    }
+    padding-top: 40px;  /* Increased from 100px */
+    padding-bottom: 80px; /* Increased from 60px */    }
     .profile-photo {
       width: 200px;
       height: 200px;
@@ -181,10 +183,11 @@ export const portfolio_styles = `
     .terminal-window {
       max-width: 100%;
       font-size: 12px;
+      height: 210px;
     }
     .terminal-body {
       padding: 15px;
-      min-height: 150px;
+      min-height: 200px;
     }
     .display-5 {
       font-size: 2rem;
@@ -266,7 +269,7 @@ export const portfolio_styles = `
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+    background: #222;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -557,6 +560,9 @@ export const portfolio_styles = `
     min-height: 200px;
   }
   .terminal-text {
+    overflow-wrap: normal;
+    overflow-y: auto;
+    height:200px;
     color: #0f0;
     margin: 0;
     font-size: 14px;
@@ -631,117 +637,46 @@ export const portfolio_styles = `
     inset 0 0 20px rgba(102, 126, 234, 0.2);
 }
 
-/* About Section Physics-Based Swing */
-.about-swing-section {
-  background: linear-gradient(135deg, rgb(19 53 110) 0%, rgb(139 144 161) 100%);
-  overflow: hidden;
-  position: relative;
+<!-- Add this CSS to your portfolio_styles.js in the terminal section -->
+
+/* Terminal Scrollbar Styles */
+.terminal-text {
+    overflow-wrap: normal;
+    height: 200px;
+    overflow-y: auto;  /* Enable vertical scrolling */
+    color: #0f0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
-.about-card-physics-swing {
-  border-radius: 20px;
-  background: rgba(20, 20, 30, 0.95);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transform-origin: center top;
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.3),
-    0 10px 20px rgba(0, 0, 0, 0.2);
-  position: relative;
-  transition: none; /* Important: no CSS transition, physics handles it */
-  will-change: transform;
+/* Dark green custom scrollbar for terminal */
+.terminal-text::-webkit-scrollbar {
+    width: 10px;
 }
 
-/* String/rope effect */
-.about-card-physics-swing::before {
-  content: '';
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  width: 2px;
-  height: 50px;
-  background: linear-gradient(to bottom, 
-    transparent, 
-    rgba(255, 255, 255, 0.1), 
-    rgba(255, 255, 255, 0.2)
-  );
-  transform: translateX(-50%);
+.terminal-text::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border-radius: 5px;
 }
 
-.about-card-content {
-  padding: 3rem;
-  position: relative;
-  z-index: 1;
+.terminal-text::-webkit-scrollbar-thumb {
+    background: #0f5f0f;  /* Dark green */
+    border-radius: 5px;
+    border: 1px solid #0a0a0a;
 }
 
-/* Dynamic shadow that moves with swing */
-.swing-shadow {
-  position: absolute;
-  bottom: -30px;
-  left: 10%;
-  right: 10%;
-  height: 20px;
-  background: radial-gradient(ellipse at center, 
-    rgba(0, 0, 0, 0.3) 0%, 
-    transparent 70%
-  );
-  filter: blur(20px);
-  transition: none;
-  will-change: transform, opacity;
-  pointer-events: none;
+.terminal-text::-webkit-scrollbar-thumb:hover {
+    background: #0f7f0f;  /* Slightly lighter green on hover */
 }
 
-/* Remove hover animations - physics only */
-.about-card-physics-swing:hover {
-  /* No hover effect - scroll controls the swing */
+/* Firefox scrollbar support */
+.terminal-text {
+    scrollbar-width: thin;
+    scrollbar-color: #0f5f0f #0a0a0a;
 }
 
-/* Visual indicator for scroll interaction */
-.about-swing-section::after {
-  content: '↕ Scroll to swing';
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: fade_pulse 2s ease-in-out infinite;
-}
-
-@keyframes fade_pulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.6; }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .about-card-physics-swing {
-    /* Reduce max swing on mobile */
-    transform-origin: center top;
-  }
-  
-  .about-card-content {
-    padding: 1.5rem;
-  }
-  
-  .about-swing-section::after {
-    display: none;
-  }
-}
-
-/* Optional: Add connecting points for multi-card setup */
-.swing-connection-point {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle, 
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.1)
-  );
-  border-radius: 50%;
-  transform: translateX(-50%);
-}
 `;
+

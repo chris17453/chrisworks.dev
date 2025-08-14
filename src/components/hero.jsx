@@ -1,11 +1,12 @@
 // components/hero.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Mail } from 'lucide-react';
 
 const TerminalTypewriter = () => {
   const [display_text, set_display_text] = useState('');
   const [current_line, set_current_line] = useState(0);
   const [typing, set_typing] = useState(true);
+  const terminal_ref = useRef(null);  // Add ref for scrolling
 
   const terminal_lines = [
     '$ whoami',
@@ -57,6 +58,12 @@ const TerminalTypewriter = () => {
     return () => clearInterval(typing_interval);
   }, [current_line]);
 
+  useEffect(() => {
+    if (terminal_ref.current) {
+      terminal_ref.current.scrollTop = terminal_ref.current.scrollHeight;
+    }
+  }, [display_text]);  // Scroll whenever text updates
+
   return (
     <div className="terminal-window">
       <div className="terminal-header">
@@ -66,14 +73,16 @@ const TerminalTypewriter = () => {
         <span className="terminal-title">portfolio.sh</span>
       </div>
       <div className="terminal-body">
-        <pre className="terminal-text">{display_text}<span className="terminal-cursor">_</span></pre>
+        <pre className="terminal-text" ref={terminal_ref}>
+          {display_text}<span className="terminal-cursor">_</span>
+        </pre>
       </div>
     </div>
   );
 };
 
 export const hero_section = ({ scroll_to_section }) => (
-  <section id="home" className="bg-gradient-primary min-vh-100 d-flex align-items-center">
+  <section id="home" className="hero-section bg-gradient-primary min-vh-100 d-flex align-items-center">
     <div className="container">
       <div className="row align-items-center">
         <div className="col-lg-8">
@@ -89,26 +98,21 @@ export const hero_section = ({ scroll_to_section }) => (
                 position: 'relative',
                 display: 'inline-flex',
                 alignItems: 'center',
-                padding: '12px 24px',
-                background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
                 color: 'white',
-                borderRadius: '50px',
-                fontSize: '0.95rem',
+                fontSize: '0.90rem',
                 fontWeight: 'bold',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
                 overflow: 'hidden',
-                animation: 'glow 2s ease-in-out infinite alternate',
+                animation: '2s ease-in-out infinite alternate',
                 whiteSpace: 'nowrap'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(42,82,152,0.5)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
               }}
+             
             >
               <Phone size={16} className="me-2" />
               (877) 731-4155
@@ -120,24 +124,19 @@ export const hero_section = ({ scroll_to_section }) => (
                 position: 'relative',
                 display: 'inline-flex',
                 alignItems: 'center',
-                padding: '12px 24px',
-                background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
                 color: 'white',
-                borderRadius: '50px',
-                fontSize: '0.95rem',
+                fontSize: '0.90rem',
                 fontWeight: 'bold',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
                 overflow: 'hidden',
-                animation: 'glow 2s ease-in-out infinite alternate'
+                animation: '2s ease-in-out infinite alternate',
+                whiteSpace: 'nowrap'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(42,82,152,0.5)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
               }}
             >
               <Mail size={16} className="me-2" />

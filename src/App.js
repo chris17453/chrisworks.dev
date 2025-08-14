@@ -1,18 +1,10 @@
-// portfolio.jsx
+// App.js
 import { set_document_title, set_meta_name, set_meta_prop, set_link_rel, set_json_ld } from './utils/head_manager';
 import React, { useEffect, useMemo, useState } from 'react';
 import { navigation_component } from './components/navigation';
-import { hero_section } from './components/hero';
-import { AboutSection } from './components/about';
-import { experience_section } from './components/experience';
-import { video_section } from './components/video';
-import { projects_section } from './components/projects';
-import { hobbies_section } from './components/hobbies';
-import { source_code_section } from './components/source_code';
-import { contact_section } from './components/contact';
 import { footer_component } from './components/footer';
 import { portfolio_styles } from './styles/portfolio_styles';
-import { professional_experience, project_categories, hobbies_data } from './data/portfolio_data';
+import { site_sections, get_enabled_sections, get_section_ids } from './data/site_config';
 
 const Portfolio = () => {
   const [active_section, set_active_section] = useState('home');
@@ -60,7 +52,7 @@ const Portfolio = () => {
     set_json_ld('person_ld', person_json_ld(email_addr));
     set_json_ld('website_ld', website_json_ld);
   }, [email_addr]);
-  
+
   useEffect(() => {
     if (!document.querySelector('link[href*="bootstrap"]')) {
       const bootstrap_link = document.createElement('link');
@@ -78,7 +70,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handle_scroll = () => {
-      const sections = ['home', 'about', 'experience', 'hire-video', 'solutions', 'projects', 'hobbies', 'source-code', 'contact'];
+      const sections = get_section_ids();
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -97,20 +89,29 @@ const Portfolio = () => {
     document.getElementById(section_id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Context object to pass to components that need it
+  const context = {
+    scroll_to_section,
+    email_addr
+  };
+
+  // Get enabled sections
+  const enabled_sections = get_enabled_sections();
+
   return (
     <>
       <style>{portfolio_styles}</style>
-      
+
       <div className="no-animation">
         {navigation_component({ active_section, scroll_to_section })}
-        {hero_section({ scroll_to_section })}
-        {AboutSection()}
-        {experience_section({ professional_experience })}
-        {video_section()}
-        {projects_section({ project_categories })}
-        {hobbies_section({ hobbies_data })}
-        {source_code_section()}
-        {contact_section({ email_addr })}
+        
+        {/* Dynamically render all enabled sections */}
+        {enabled_sections.map(section => {
+          const Component = section.component;
+          const props = section.props(context);
+          return <Component key={section.id} {...props} />;
+        })}
+        
         {footer_component()}
       </div>
     </>

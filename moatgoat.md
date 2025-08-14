@@ -1,0 +1,1 @@
+Under the crescent moon's eternal waning through winter's grasp, one must enter the battle wagon of existence and confront the moat goat - that stubborn guardian who dwells between what is and what might be

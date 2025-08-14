@@ -1,200 +1,271 @@
-
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const AboutSection = () => {
-  const card_ref = useRef(null);
-  const animation_frame = useRef(null);
-  const [swing_state, set_swing_state] = useState({
-    angle: 0,
-    velocity: 0,
-    dampening: 0.95,
-    spring: 0.02,
-    max_angle: 15
-  });
-  
-  const last_scroll_y = useRef(0);
-  const scroll_timeout = useRef(null);
+  const [glitch_active, set_glitch_active] = useState(false);
+  const [typed_text, set_typed_text] = useState('');
+  const full_title = 'About Me';
   
   useEffect(() => {
-    let angle = 0;
-    let velocity = 0;
-    let is_animating = false;
-    const dampening = 0.96;  // Increased from 0.92 - faster energy loss
-    const spring = 0.008;     // Reduced from 0.015 - gentler pull to center
-    const max_angle = 6;      // Reduced from 12 - smaller max swing
-    
-    const animate = () => {
-      // Apply spring force toward center
-      velocity += -angle * spring;
-      
-      // Apply dampening
-      velocity *= dampening;
-      
-      // Update angle - clamp to max
-      angle += velocity;
-      angle = Math.max(-max_angle, Math.min(max_angle, angle));
-      
-      // Apply to element
-      if (card_ref.current) {
-        card_ref.current.style.transform = `rotate(${angle}deg)`;
-        
-        // Update shadow based on swing
-        const shadow = card_ref.current.querySelector('.swing-shadow');
-        if (shadow) {
-          const shadow_offset = angle * 2;
-          const shadow_scale = 1 + Math.abs(angle) * 0.02;
-          const shadow_opacity = 0.3 + Math.abs(angle) * 0.01;
-          shadow.style.transform = `translateX(${shadow_offset}px) scale(${shadow_scale})`;
-          shadow.style.opacity = shadow_opacity;
-        }
-      }
-      
-      // Continue animation if there's motion
-      if (Math.abs(velocity) > 0.001 || Math.abs(angle) > 0.01) {
-        animation_frame.current = requestAnimationFrame(animate);
-        is_animating = true;
+    // Typewriter effect for title
+    let char_index = 0;
+    const type_interval = setInterval(() => {
+      if (char_index <= full_title.length) {
+        set_typed_text(full_title.slice(0, char_index));
+        char_index++;
       } else {
-        is_animating = false;
-        animation_frame.current = null;
+        clearInterval(type_interval);
       }
-    };
+    }, 100);
     
-    const start_animation = () => {
-      if (!is_animating && !animation_frame.current) {
-        is_animating = true;
-        animate();
-      }
-    };
-    
-    const handle_scroll = () => {
-      const scroll_y = window.scrollY;
-      const scroll_delta = scroll_y - last_scroll_y.current;
-      last_scroll_y.current = scroll_y;
-      
-      // Much gentler energy addition - reduced from 0.3 to 0.05
-      const energy = Math.min(Math.max(scroll_delta * 0.05, -1), 1);
-      velocity += energy;
-      
-      // Tighter velocity clamp - reduced from 2 to 0.5
-      velocity = Math.min(Math.max(velocity, -0.5), 0.5);
-      
-      // Start animation if not running
-      start_animation();
-      
-      // Clear existing timeout
-      if (scroll_timeout.current) {
-        clearTimeout(scroll_timeout.current);
-      }
-      
-      // Keep animating for a bit after scroll stops
-      scroll_timeout.current = setTimeout(() => {
-        // Let natural dampening take over
-      }, 100);
-    };
-    
-    // Handle visibility changes (tab switching)
-    const handle_visibility_change = () => {
-      if (!document.hidden) {
-        // Tab became visible - restart animation if there's motion
-        if (Math.abs(velocity) > 0.01 || Math.abs(angle) > 0.01) {
-          start_animation();
-        }
-      }
-    };
-    
-    // Handle resize events
-    const handle_resize = () => {
-      // Give a small nudge on resize
-      velocity += 0.1;
-      start_animation();
-    };
-    
-    // Add listeners
-    window.addEventListener('scroll', handle_scroll);
-    document.addEventListener('visibilitychange', handle_visibility_change);
-    window.addEventListener('resize', handle_resize);
-    
-    // Also trigger on intersection for initial animation
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && Math.abs(velocity) < 0.1) {
-            // Gentler initial push - reduced from 0.5 to 0.2
-            velocity = 0.2;
-            start_animation();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    
-    if (card_ref.current) {
-      observer.observe(card_ref.current);
-    }
+    // Random glitch effect
+    const glitch_interval = setInterval(() => {
+      set_glitch_active(true);
+      setTimeout(() => set_glitch_active(false), 200);
+    }, 8000);
     
     return () => {
-      window.removeEventListener('scroll', handle_scroll);
-      document.removeEventListener('visibilitychange', handle_visibility_change);
-      window.removeEventListener('resize', handle_resize);
-      if (animation_frame.current) {
-        cancelAnimationFrame(animation_frame.current);
-      }
-      if (scroll_timeout.current) {
-        clearTimeout(scroll_timeout.current);
-      }
-      if (card_ref.current) {
-        observer.unobserve(card_ref.current);
-      }
+      clearInterval(type_interval);
+      clearInterval(glitch_interval);
     };
   }, []);
   
   return (
-    <section id="about" className="section-padding about-swing-section">
+    <section id="about" className="section-padding about-section retro-game-section">
+      <style>{`
+        .retro-game-section {
+          position: relative;
+          background: linear-gradient(180deg, #0a0a0a 0%, #1a0f1f 100%);
+          overflow: hidden;
+        }
+        
+        .retro-game-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            repeating-linear-gradient(
+              0deg,
+              rgba(0, 255, 0, 0.03) 0px,
+              transparent 1px,
+              transparent 2px,
+              rgba(0, 255, 0, 0.03) 3px
+            );
+          pointer-events: none;
+          animation: scanlines 8s linear infinite;
+          z-index: 1;
+        }
+        
+        @keyframes scanlines {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(10px); }
+        }
+        
+        .retro-terminal {
+          position: relative;
+          background: rgba(2, 15, 7, 0.9);
+          border: 2px solid #00ff41;
+          border-radius: 8px;
+          padding: 40px;
+          box-shadow: 
+            0 0 20px rgba(0, 255, 65, 0.3),
+            inset 0 0 20px rgba(0, 255, 65, 0.05);
+          overflow: hidden;
+          z-index: 2;
+        }
+        
+        .terminal2-header {
+
+          display: flex;
+          gap: 8px;
+          margin-bottom: 30px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid #196a2d;
+        }
+        
+        .terminal-dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #00ff41;
+        }
+        
+        .retro-title {
+          font-family: 'Courier New', monospace;
+          color: #00ff41;
+          text-shadow: 
+            0 0 10px #00ff41,
+            0 0 20px #00ff41,
+            0 0 30px #00ff41;
+          margin-bottom: 40px;
+          font-size: 3rem;
+          letter-spacing: 3px;
+        }
+        
+        .retro-title::after {
+          content: '_';
+          animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
+        
+        .terminal2-text {
+          font-family: 'Courier New', monospace;
+          color: #00ff41;
+          line-height: 1.8;
+          margin-bottom: 20px;
+          padding: 15px;
+          background: transparent;
+          border-left: 3px solid #00ff41;
+          position: relative;
+          font-weight: 500;
+        }
+        
+        .terminal2-text::before {
+          content: '> ';
+          color: #00ff88;
+          font-weight: bold;
+        }
+        
+        .glitch-effect {
+          animation: glitch 0.3s infinite;
+        }
+        
+        @keyframes glitch {
+          0%, 100% { 
+            transform: translate(0);
+            filter: hue-rotate(0deg);
+          }
+          20% { 
+            transform: translate(-1px, 1px);
+            filter: hue-rotate(90deg);
+          }
+          40% { 
+            transform: translate(-1px, -1px);
+            filter: hue-rotate(180deg);
+          }
+          60% { 
+            transform: translate(1px, 1px);
+            filter: hue-rotate(270deg);
+          }
+          80% { 
+            transform: translate(1px, -1px);
+            filter: hue-rotate(360deg);
+          }
+        }
+        
+        .pixel-corners {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #00ff41;
+        }
+        
+        .pixel-corners.top-left {
+          top: -2px;
+          left: -2px;
+          border-right: none;
+          border-bottom: none;
+        }
+        
+        .pixel-corners.top-right {
+          top: -2px;
+          right: -2px;
+          border-left: none;
+          border-bottom: none;
+        }
+        
+        .pixel-corners.bottom-left {
+          bottom: -2px;
+          left: -2px;
+          border-right: none;
+          border-top: none;
+        }
+        
+        .pixel-corners.bottom-right {
+          bottom: -2px;
+          right: -2px;
+          border-left: none;
+          border-top: none;
+        }
+        
+        .power-indicator {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          width: 8px;
+          height: 8px;
+          background: #00ff41;
+          border-radius: 50%;
+          box-shadow: 0 0 10px #00ff41;
+        }
+        
+        @media (max-width: 768px) {
+          .retro-title { font-size: 2rem; }
+          .retro-terminal { padding: 20px; }
+        }
+      `}</style>
+      
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center mb-5">
-            <h2 className="display-5 fw-bold mb-4 text-white">About Me</h2>
+            <h2 className="retro-title">{typed_text}</h2>
           </div>
         </div>
         <div className="row">
           <div className="col-lg-10 offset-lg-1">
-            <div ref={card_ref} className="about-card-physics-swing">
-              <div className="about-card-content">
-              <p className="lead mb-4 text-white">
-                I have spent 25 years living and breathing technology, building, breaking, and fixing enterprise systems. 
-              </p>
-
-              <p className="lead mb-4 text-white">
-                I began my career as a C/PHP consultant with a strong understanding of hardware, quickly expanding into infrastructure design, 
-                racking, and stacking. I built core infrastructure and systems for manufacturing companies and local boutiques, delivering 
-                accounting platforms, inventory management, e-commerce integrations, shipping systems with FedEx and UPS, and payment processing 
-                solutions. I developed long-term relationships with clients ranging from small shops to enterprise operations, keeping them 
-                running and evolving through cloud migrations and legacy system rebuilds.
-              </p>
-
-              <p className="lead mb-4 text-white">
-                I later explored corporate life to see what it was like not managing customers directly... yet I still found myself serving them. 
-                At Pitney Bowes, I worked as a Senior Engineer building and integrating hundreds of shipping platform integrations in C#, taking on 
-                both technical leadership and hands-on coding. When my division closed after a year, I joined E*TRADE as SRE in the 
-                infrastructure division, where I integrated systems, implemented platform scanning, developed VM automation, and integrated VMware. 
-                During COVID, I delivered critical remote workforce metrics to the C-suite. When Morgan Stanley acquired the company, I took the 
-                opportunity to seek new challenges.
-              </p>
-
-              <p className="lead mb-4 text-white">
-                I moved to IBM as SRE/Engineer in the Financial Services Division, traveling nationwide to implement OpenShift, Turbonomics, 
-                Instana, and WatsonX solutions for banks and Fortune 500 companies. I contributed not just as a designer but as an implementer, 
-                ensuring solutions worked in the real world. When the compensation structure changed, I chose to return to independent consulting.
-              </p>
-
-              <p className="lead mb-4 text-white">
-                After a year or so of running my own practice again, I am ready for the next leadership opportunity, bringing both the adaptability 
-                of a consultant and the process discipline of Fortune 500 environments. I lead from the front... architecting, building, and fixing 
-                systems myself when needed.
-              </p>
-  
+            <div className={`retro-terminal `}>
+              <div className="pixel-corners top-left"></div>
+              <div className="pixel-corners top-right"></div>
+              <div className="pixel-corners bottom-left"></div>
+              <div className="pixel-corners bottom-right"></div>
+              <div className="power-indicator"></div>
+              
+              <div className="terminal2-header">
+                <div className="terminal-dot"></div>
+                <div className="terminal-dot"></div>
+                <div className="terminal-dot"></div>
               </div>
-              <div className="swing-shadow"></div>
+              
+              <div className="terminal-content">
+                <div className="terminal2-text">
+                  I have spent 25 years living and breathing technology, building, breaking, and fixing enterprise systems.
+                </div>
+
+                <div className="terminal2-text">
+                  I began my career as a C/PHP consultant with a strong understanding of hardware, quickly expanding into infrastructure design, 
+                  racking, and stacking. I built core infrastructure and systems for manufacturing companies and local boutiques, delivering 
+                  accounting platforms, inventory management, e-commerce integrations, shipping systems with FedEx and UPS, and payment processing 
+                  solutions. I developed long-term relationships with clients ranging from small shops to enterprise operations, keeping them 
+                  running and evolving through cloud migrations and legacy system rebuilds.
+                </div>
+
+                <div className="terminal2-text">
+                  I later explored corporate life to see what it was like not managing customers directly... yet I still found myself serving them. 
+                  At Pitney Bowes, I worked as a Senior Engineer building and integrating hundreds of shipping platform integrations in C#, taking on 
+                  both technical leadership and hands-on coding. When my division closed after a year, I joined E*TRADE as SRE in the 
+                  infrastructure division, where I integrated systems, implemented platform scanning, developed VM automation, and integrated VMware. 
+                  During COVID, I delivered critical remote workforce metrics to the C-suite. When Morgan Stanley acquired the company, I took the 
+                  opportunity to seek new challenges.
+                </div>
+
+                <div className="terminal2-text">
+                  I moved to IBM as SRE/Engineer in the Financial Services Division, traveling nationwide to implement OpenShift, Turbonomics, 
+                  Instana, and WatsonX solutions for banks and Fortune 500 companies. I contributed not just as a designer but as an implementer, 
+                  ensuring solutions worked in the real world. When the compensation structure changed, I chose to return to independent consulting.
+                </div>
+
+                <div className="terminal2-text">
+                  After a year or so of running my own practice again, I am ready for the next leadership opportunity, bringing both the adaptability 
+                  of a consultant and the process discipline of Fortune 500 environments. I lead from the front... architecting, building, and fixing 
+                  systems myself when needed.
+                </div>
+              </div>
             </div>
           </div>
         </div>
