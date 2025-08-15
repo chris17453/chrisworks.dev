@@ -35,8 +35,8 @@ export const site_data = {
     // Hero section data
     hero: {
       status_message: 'Looking for work...',
-      headline: 'IT Engineer & Leader',
-      intro_text: "I have close to 25 years of experience in the IT field. I've owned consulting companies, and worked for big corps. I'm passionate, adaptable, and technically hands-on. Available for principal engineer, staff engineer, or technical leadership roles.",
+      headline: 'Principal Engineer',
+      intro_text: "I'm an engineer with deep coding and infrastructure roots. Generally, I'm the guy you treat like McGyver and sick at systemic problems. I have close to 25 years of experience in the IT field. I've owned consulting companies, and worked for big corps. I'm passionate, adaptable, and technically hands-on. Available for principal engineer, staff engineer, or technical leadership roles.",
       cta_primary: {
         text: 'Hire Me',
         action: 'contact'
