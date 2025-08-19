@@ -85,13 +85,14 @@ export const HeroSection = ({ data, personal, scroll_to_section }) => {
   return (
     <section id="home" className="hero-section bg-gradient-primary min-vh-100 d-flex align-items-center">
       <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-8">
+        {/* First row: Title, contact info, and photo */}
+        <div className="row align-items-start mb-4">
+          <div className="col-lg-8 col-md-8">
             <h1 className="display-4 fw-bold mb-3">{data.status_message}</h1>
             <h2 className="display-4 fw-bold mb-3">{data.headline}</h2>
 
             {/* Quick contact info - animated badges */}
-            <div className="d-flex gap-3 mb-4">
+            <div className="d-flex gap-3">
               <a
                 href={`tel:${personal.phone.replace(/[^0-9]/g, '')}`}
                 className="text-decoration-none"
@@ -143,7 +144,20 @@ export const HeroSection = ({ data, personal, scroll_to_section }) => {
                 {email}
               </a>
             </div>
+          </div>
+          
+          <div className="col-lg-4 col-md-4 text-center text-lg-end mt-3 mt-md-0">
+            <img 
+              src={personal.profile_image} 
+              alt={personal.full_name} 
+              className="profile-photo rounded-circle" 
+            />
+          </div>
+        </div>
 
+        {/* Second row: Intro text, terminal, and buttons */}
+        <div className="row mt-5">
+          <div className="col-lg-12">
             <style jsx>{`
               @keyframes glow {
                 from {
@@ -175,13 +189,6 @@ export const HeroSection = ({ data, personal, scroll_to_section }) => {
                 {data.cta_secondary.text}
               </button>
             </div>
-          </div>
-          <div className="col-lg-4 text-center">
-            <img 
-              src={personal.profile_image} 
-              alt={personal.full_name} 
-              className="profile-photo rounded-circle" 
-            />
           </div>
         </div>
       </div>

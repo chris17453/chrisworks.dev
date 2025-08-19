@@ -24,7 +24,7 @@ export const site_data = {
       title: 'Principal Engineer',
       email_user: 'chris',
       email_domain: 'watkinslabs.com',
-      phone: '(877) 731-4155',
+      phone: '470-504-4011',
       location: 'Sugar Hill, GA',
       company: 'Watkins Labs',
       company_url: 'https://watkinslabs.com',

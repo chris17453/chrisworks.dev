@@ -155,15 +155,32 @@ export const portfolio_styles = `
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
-  .profile-photo {
-    margin-top:40px;
-    width: 250px;
-    height: 250px;
+.profile-photo {
+    margin-top: 0;  /* Reset to 0, no negative margins */
+    width: 200px;
+    height: 200px;
     max-width: 100%;
     object-fit: cover;
     border: 3px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
+  
+  /* Add hero content alignment */
+  .hero-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+  }
+  
+  .hero-image {
+    flex-shrink: 0;
+    padding-top: 0;  /* Align with title */
+  }
+    
   .hero-section {
     min-height: 100vh;
     padding-top: 50px;  /* Increased from 80px */
