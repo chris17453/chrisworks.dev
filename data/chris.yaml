@@ -1,0 +1,368 @@
+header:
+  name: Charles Christopher Watkins
+  address: |
+    Sugar Hill, GA
+  location: Sugar Hill, GA
+  phone: 470-504-4011
+  email: chris@watkinslabs.com
+  position: Principal Engineer | Technical Leadership | Problem Solver
+  github: github.com/chris17453
+  linkedin: https://linkedin.com/in/chris17453/
+  portfolio: https://chrisworks.dev/
+  picture: data/chris.webp
+
+summary:
+  text: |
+    25 years owning hard technical problems that don't have clear playbooks. 
+    Comfortable with ambiguous scope - I adapt to whatever needs solving. 
+    Deep technical expertise from infrastructure to AI, with leadership experience. 
+    Track record of delivering enterprise solutions that save millions and scale globally.
+
+achievements:
+- Built DDB database engine adopted by E*TRADE, IBM, HP and 12+ global organizations
+- Delivered $20M+ in IBM Financial Services sales through technical solutions
+- Automated Mass VM infrastructure migration at E*TRADE, enabling pandemic response
+- Created Hundreds of Open Source Code projects
+
+experiences:
+- role: Founder & Principal Solutions Architect
+  company: Watkins Labs
+  start: '2024-01-01'
+  end: '2025-08-01'
+  currently_working: true
+  feature_comment: Boutique solutions for corporations with legacy systems, bridging decades-old platforms with modern innovations.
+  achievements:
+  - Delivered significant cost savings by maintaining systems with minimal vendor support
+  - Transitioned VMWare users to cost-effective platforms, maintaining uptime while cutting IT costs
+  - Engineered automated solutions eleminating toil for operators
+  - Built custom tools and frameworks for seamless legacy/modern environment compatibility
+  - Managed hybrid engineering teams and client relationships across multiple industries
+  - Implimented several Integrations such as onPart, PartsTrader, CCC
+  - Integrated vin-decoders and custom SO,INV, PO, POSting, Recieving and other Accounting soloutions 
+
+- role: Senior Site Reliability Engineer / Senior Technology Engineer
+  company: IBM Financial Services Division
+  start: '2021-07-01'
+  end: '2024-01-31'
+  currently_working: false
+  feature_comment: Technical sales engineer delivering enterprise solutions that helped IBM's financial clients modernize their operations.
+  achievements:
+  - Enabled financial clients to automate operations by integrating IBM MQ, WatsonAIOps, and LLM technologies
+  - Helped shape Watson X product features through direct collaboration with dev team and customer feedback loops
+  - Proved viability of AI-powered document processing, leading to production implementations at multiple clients
+  - Reduced client incident response times by implementing comprehensive observability with Instana and Turbonomics
+  - Accelerated client cloud migrations by deploying production-ready OpenShift environments with monitoring
+  - Enabled seamless multi-cloud operations for enterprises operating across AWS, Azure, and GCP
+  - Bridged communication gaps between technical teams and business stakeholders, ensuring aligned expectations
+  - Converted technical evaluations into successful implementations by demonstrating clear business value
+
+
+- role: Principal Site Reliability Engineer (Infrastructure)
+  company: E*TRADE
+  start: '2018-06-01'
+  end: '2021-02-28'
+  currently_working: false
+  feature_comment: Infrastructure automation expert who bridged enterprise teams and modernized VMware operations across hybrid environments.
+  achievements:
+  - Automated 20,000+ VM management across VMware vSphere on-prem and VMware Cloud on AWS
+  - Partnered with enterprise architecture, networking, and security teams to deliver integrated solutions
+  - Built unified automation framework connecting VMware vCenter, AWS, and on-prem infrastructure
+  - Enabled rapid pandemic response with executive dashboard providing real-time workforce/system visibility
+  - Implemented proactive system scanning and observability catching issues before trading impact
+  - Reduced deployment friction by integrating Infrastructure-as-Code with existing VMware workflows
+  - Facilitated cross-team collaboration enabling seamless hybrid cloud operations
+  - Standardized VMware templates and automation reducing provisioning time from days to hours
+  - Bridged legacy VMware systems with modern cloud-native architectures for gradual migration
+
+- role: Senior Software Developer
+  company: Pitney Bowes
+  start: '2017-01-01'
+  end: '2018-02-28'
+  currently_working: false
+  feature_comment: Built and integrated dozens of shipping solutions into unified platform for global logistics operations.
+  achievements:
+  - Consolidated 30+ disparate shipping APIs into centralized microservices platform
+  - Reduced shipping costs for clients by enabling real-time rate comparison across all carriers
+  - Streamlined operations by unifying FedEx, UPS, USPS, and international carriers into single interface
+  - Eliminated manual processes through automated barcode generation and tracking reconciliation
+  - Improved development velocity by introducing Git workflows and training team on version control
+  - Enabled multi-carrier shipping optimization serving thousands of daily transactions
+  - Built fault-tolerant integrations handling carrier API failures without disrupting shipments
+  - Delivered unified reporting dashboard providing visibility across all shipping channels
+
+- role: Founder & Principal Solutions Architect
+  company: DataModerated
+  start: '2001-07-01'
+  end: '2016-12-31'
+  currently_working: false
+  feature_comment: Technical consulting services enhancing workflows and system performance for diverse clients.
+  achievements:
+  - Delivered technical consulting services for 15+ years across multiple industries
+  - Migrated and modernized legacy systems aligning with client business goals
+  - Managed team of engineers providing mentorship and operational success
+  - Directed multiple EDI API developments for seamless business integrations
+  - Built and maintained strong client relationships ensuring project alignment
+
+screener:
+  - 'Veteran:  No'
+  - 'Disability:  No'
+  - 'US Citizen:  Yes'
+  - 'Over 18:  Yes'
+  - 'Travel: Yes'
+  - 'Remote: Yes'
+  - 'Hybrid: Yes'
+  - 'Office: No'
+  - 'Start Date:  2025-09-01'
+
+strengths:
+- Take ownership of problems - find solutions or the right people to solve them
+- Handle what's in my domain, defer to others' expertise
+- Quick to upskill on any tech needed for the job
+- Proactive learner and love mentoring teams
+- Former business owner - conscious about costs and keeping them reasonable
+
+
+passions:
+- Family time 
+- Chilling with my dogs
+- 3D printing and prototyping
+- Flying drones
+- Electronics projects and hardware hacking
+- Writing software 
+
+
+links:
+  github: https://github.com/chris17453
+  portfolio: https://chrisworks.dev
+  linkedin: https://linkedin.com/in/chris17453
+
+cover_page: false
+
+skills:
+- category: Languages & Development
+  skills:
+  - name: Python
+    svg: python
+    rating: 5
+  - name: C
+    svg: c
+    rating: 4
+  - name: C++
+    svg: cplusplus
+    rating: 4
+  - name: C#
+    svg: code
+    rating: 3
+  - name: PHP
+    svg: php
+    rating: 4
+  - name: JavaScript
+    svg: javascript
+    rating: 5
+  - name: TypeScript
+    svg: typescript
+    rating: 3
+  - name: Bash
+    svg: terminal
+    rating: 5
+  - name: PowerShell
+    svg: microsoft
+    rating: 2
+
+- category: API & Integration
+  skills:
+  - name: REST APIs
+    svg: kong
+    rating: 5
+  - name: FastAPI
+    svg: fastapi
+    rating: 4
+  - name: Flask
+    svg: flask
+    rating: 5
+  - name: SOAP/XML
+    svg: xml
+    rating: 3
+  - name: GraphQL
+    svg: graphql
+    rating: 3
+  - name: WebSockets
+    svg: plug
+    rating: 3
+  - name: API Gateway
+    svg:  door-open
+    rating: 4
+  - name: Message Queues
+    svg: rabbitmq
+    rating: 3
+
+- category: Databases & Data
+  skills:
+  - name: PostgreSQL
+    svg: postgresql
+    rating: 5
+  - name: MySQL/MariaDB
+    svg: mysql
+    rating: 5
+  - name: MSSQL
+    svg: database
+    rating: 5
+  - name: MongoDB
+    svg: mongodb
+    rating: 3
+  - name: Redis
+    svg: redis
+    rating: 3
+  - name: ETL Pipelines
+    svg: diagram-project
+    rating: 4
+  - name: SQL Writing
+    svg: mysql
+    rating: 5
+  - name: Database Design
+    svg: dbeaver
+    rating: 5
+
+- category: Cloud & Platforms
+  skills:
+  - name: AWS
+    svg: aws
+    rating: 4
+  - name: GCP
+    svg: googlecloud
+    rating: 3
+  - name: Azure
+    svg: microsoft
+    rating: 3
+  - name: OpenShift
+    svg: redhat
+    rating: 4
+  - name: Kubernetes
+    svg: kubernetes
+    rating: 5
+  - name: EKS
+    svg: dharmachakra
+    rating: 4
+  - name: ECS
+    svg: ship
+    rating: 4
+  - name: GKE
+    svg: googlecloud
+    rating: 4
+  - name: Docker
+    svg: docker
+    rating: 5
+
+- category: Infrastructure & Networking
+  skills:
+  - name: TCP/IP
+    svg: network-wired
+    rating: 5
+  - name: DNS/BIND
+    svg: globe
+    rating: 5
+  - name: Load Balancers
+    svg: scale-balanced
+    rating: 5
+  - name: Firewalls
+    svg: shield-halved
+    rating: 5
+  - name: VPN/IPSec
+    svg: lock
+    rating: 5
+  - name: Email (SPF/DKIM)
+    svg: envelope
+    rating: 4
+  - name: Storage/SAN
+    svg: hard-drive
+    rating: 5
+  - name: Backup/DR
+    svg: database
+    rating: 5
+
+- category: Automation & DevOps
+  skills:
+  - name: Terraform
+    svg: terraform
+    rating: 4
+  - name: Ansible
+    svg: ansible
+    rating: 4
+  - name: Jenkins
+    svg: jenkins
+    rating: 3
+  - name: GitLab CI
+    svg: gitlab
+    rating: 3
+  - name: GitHub Actions
+    svg: github
+    rating: 3
+  - name: ArgoCD
+    svg: argo
+    rating: 3
+  - name: Puppet
+    svg: puppet
+    rating: 3
+  - name: Chef
+    svg: chef
+    rating: 3
+  - name: Git
+    svg: git
+    rating: 5
+
+- category: Monitoring & Observability
+  skills:
+  - name: Prometheus
+    svg: prometheus
+    rating: 3
+  - name: Grafana
+    svg: grafana
+    rating: 3
+  - name: ELK Stack
+    svg: elastic
+    rating: 3
+  - name: Nagios
+    svg: campaignmonitor
+    rating: 3
+  - name: Zabbix
+    svg: gauge
+    rating: 3
+  - name: Datadog
+    svg: datadog
+    rating: 4
+  - name: New Relic
+    svg: newrelic
+    rating: 4
+  - name: Splunk
+    svg: splunk
+    rating: 4
+
+- category: Leadership & Business
+  skills:
+  - name: Team Leadership
+    svg: people-group
+    rating: 5
+  - name: Architecture Design
+    svg: sitemap
+    rating: 5
+  - name: Mentoring
+    svg: user-graduate
+    rating: 4
+  - name: Business Process
+    svg: diagram-project
+    rating: 5
+  - name: Stakeholder Mgmt
+    svg: handshake
+    rating: 4
+  - name: Agile/Scrum
+    svg: arrows-rotate
+    rating: 4
+  - name: Cost Optimization
+    svg: chart-line
+    rating: 5
+  - name: Vendor Management
+    svg: truck-field
+    rating: 4
+  - name: Technical Writing
+    svg: file-pen
+    rating: 4

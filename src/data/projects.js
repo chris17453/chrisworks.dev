@@ -69,6 +69,14 @@ export const project_categories = [
       icon: <Code className="me-2" size={20} />,
       projects: [
         {
+          name: "Resumate",
+          description: "Command-line utility for building a professioanl Resume from yaml",
+          url: "https://github.com/chris17453/resumate",
+          tech: ["Python", "CLI"],
+          image: "/static/resumate.png"
+        },
+
+        {
           name: "Flort CLI Tool",
           description: "Command-line utility for concatenating files optimized for AI processing workflows",
           url: "https://github.com/watkinslabs/flort",
