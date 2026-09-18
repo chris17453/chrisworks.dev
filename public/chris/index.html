@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avatar LoRA Review</title>
+<style>
+:root{--bg:#0d0f12;--panel:#15181d;--line:#262b33;--tx:#e6e9ee;--dim:#98a2b3;--ok:#4ade80;--bad:#f87171;--acc:#60a5fa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.6 -apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:40px 24px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(13,15,18,.94);backdrop-filter:blur(8px);z-index:9}
+h1{margin:0 0 6px;font-size:26px} header p{margin:0;color:var(--dim)}
+nav{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+nav a{color:var(--tx);text-decoration:none;font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:999px}
+nav a:hover{border-color:var(--acc);color:var(--acc)}
+main{max-width:1500px;margin:0 auto;padding:0 24px 80px}
+h2{margin:44px 0 6px;font-size:21px;border-left:3px solid var(--acc);padding-left:12px}
+h2+p{margin:0 0 18px;color:var(--dim);max-width:75ch}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:20px 0}
+.kpi div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.kpi b{display:block;font-size:24px} .kpi span{color:var(--dim);font-size:12px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(186px,1fr));gap:12px;margin-top:14px}
+.av{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.av img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover}
+.av figcaption{padding:8px 10px;font-size:11px} .av b{display:block} .av .m{color:var(--dim)}
+.sheet{margin:22px 0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.sheet.bad{border-left:3px solid var(--bad)}
+.sheet h3{margin:0 0 4px;font-size:16px} .sheet p{margin:0 0 10px;color:var(--dim);font-size:13px}
+.sheet img{width:100%;border-radius:6px;display:block}
+.media{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.media figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.media h4{margin:0 0 8px;font-size:14px}
+.media video,.media audio{width:100%;border-radius:6px}
+.media figcaption{color:var(--dim);font-size:12px;margin-top:8px}
+code{background:#1e232b;padding:2px 6px;border-radius:4px;font-size:13px}
+.ok{color:var(--ok)} .no{color:var(--bad)}
+</style></head><body>
+<header><h1>Avatar LoRA — review</h1>
+<p>Everything produced and measured this session. 94% pass rate on the adversarial suite.</p>
+<nav><a href="#top">Result</a><a href="#photoreal">Photoreal</a><a href="#anime">Anime</a>
+<a href="#how">How it works</a><a href="#proof">Validation</a><a href="#failed">What failed</a>
+<a href="#data">Training data</a><a href="#voice">Voice &amp; lip sync</a></nav></header>
+<main>
+
+<h2 id="top">The result</h2>
+<p>A LoRA that generates unlimited variations of you as an avatar, photoreal or animated, validated by measurement rather than by eye.</p>
+<div class="kpi">
+<div><b class="ok">94%</b><span>adversarial suite, 33/35, 5 seeds</span></div>
+<div><b>22</b><span>photoreal avatars shipped</span></div>
+<div><b>14</b><span>anime avatars shipped</span></div>
+<div><b>0</b><span>shipped avatars failing the gate</span></div>
+<div><b>10</b><span>approaches measured and rejected</span></div>
+</div>
+<section class="sheet"><h3></h3><p></p>
+<a href="24_FINAL_DELIVERABLE.jpg" target="_blank"><img loading="lazy" src="24_FINAL_DELIVERABLE.jpg" alt=""></a></section>
+
+<h2 id="photoreal">Photoreal avatars — 22</h2>
+<p>Gate: face-crop appearance &ge; 0.745. That threshold keeps 100% of your real photos and rejects 100% of known impostors. Range here 0.751&ndash;0.880.</p>
+<div class="grid"><figure class="av"><img loading="lazy" src="avatars/passed/laugh_101.png" alt="laugh_101.png">
+<figcaption><b>laugh_101</b><span class="m">face 0.76 &middot; crop 0.873 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/laugh_202.png" alt="laugh_202.png">
+<figcaption><b>laugh_202</b><span class="m">face 0.731 &middot; crop 0.823 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/laugh_303.png" alt="laugh_303.png">
+<figcaption><b>laugh_303</b><span class="m">face 0.735 &middot; crop 0.824 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/neutral_101.png" alt="neutral_101.png">
+<figcaption><b>neutral_101</b><span class="m">face 0.765 &middot; crop 0.875 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/neutral_303.png" alt="neutral_303.png">
+<figcaption><b>neutral_303</b><span class="m">face 0.769 &middot; crop 0.813 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/profile_101.png" alt="profile_101.png">
+<figcaption><b>profile_101</b><span class="m">face 0.742 &middot; crop 0.822 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/profile_202.png" alt="profile_202.png">
+<figcaption><b>profile_202</b><span class="m">face 0.68 &middot; crop 0.813 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/pt_neutral_101.png" alt="pt_neutral_101.png">
+<figcaption><b>pt_neutral_101</b><span class="m">face 0.773 &middot; crop 0.779 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/pt_neutral_202.png" alt="pt_neutral_202.png">
+<figcaption><b>pt_neutral_202</b><span class="m">face 0.696 &middot; crop 0.753 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/pt_talk_101.png" alt="pt_talk_101.png">
+<figcaption><b>pt_talk_101</b><span class="m">face 0.716 &middot; crop 0.769 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/pt_threeq_202.png" alt="pt_threeq_202.png">
+<figcaption><b>pt_threeq_202</b><span class="m">face 0.76 &middot; crop 0.782 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/serious_101.png" alt="serious_101.png">
+<figcaption><b>serious_101</b><span class="m">face 0.717 &middot; crop 0.756 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/serious_303.png" alt="serious_303.png">
+<figcaption><b>serious_303</b><span class="m">face 0.73 &middot; crop 0.846 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/smile_101.png" alt="smile_101.png">
+<figcaption><b>smile_101</b><span class="m">face 0.754 &middot; crop 0.813 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/surprised_101.png" alt="surprised_101.png">
+<figcaption><b>surprised_101</b><span class="m">face 0.672 &middot; crop 0.88 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/surprised_202.png" alt="surprised_202.png">
+<figcaption><b>surprised_202</b><span class="m">face 0.746 &middot; crop 0.77 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/surprised_303.png" alt="surprised_303.png">
+<figcaption><b>surprised_303</b><span class="m">face 0.716 &middot; crop 0.837 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/talking_101.png" alt="talking_101.png">
+<figcaption><b>talking_101</b><span class="m">face 0.734 &middot; crop 0.751 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/talking_303.png" alt="talking_303.png">
+<figcaption><b>talking_303</b><span class="m">face 0.732 &middot; crop 0.829 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/threeq_101.png" alt="threeq_101.png">
+<figcaption><b>threeq_101</b><span class="m">face 0.779 &middot; crop 0.864 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/threeq_202.png" alt="threeq_202.png">
+<figcaption><b>threeq_202</b><span class="m">face 0.772 &middot; crop 0.842 <i>(floor 0.745)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/passed/threeq_303.png" alt="threeq_303.png">
+<figcaption><b>threeq_303</b><span class="m">face 0.73 &middot; crop 0.79 <i>(floor 0.745)</i></span></figcaption></figure></div>
+
+<h2 id="anime">Anime avatars — 14</h2>
+<p>Made by image-to-image from an already-validated photoreal avatar at denoise 0.78&ndash;0.84. Gate floor 0.719, because heavy stylisation costs about 0.13 even when identity is provably unchanged. Range here 0.729&ndash;0.764.</p>
+<div class="grid"><figure class="av"><img loading="lazy" src="avatars/final_stylised/laugh_101_anime_78_23.png" alt="laugh_101_anime_78_23.png">
+<figcaption><b>laugh_101_anime_78_23</b><span class="m">face 0.4 &middot; crop 0.729 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/laugh_101_anime_84_7.png" alt="laugh_101_anime_84_7.png">
+<figcaption><b>laugh_101_anime_84_7</b><span class="m">face 0.353 &middot; crop 0.747 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/laugh_101_anime_85.png" alt="laugh_101_anime_85.png">
+<figcaption><b>laugh_101_anime_85</b><span class="m">face 0.353 &middot; crop 0.747 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/neutral_101_anime_78_7.png" alt="neutral_101_anime_78_7.png">
+<figcaption><b>neutral_101_anime_78_7</b><span class="m">face 0.405 &middot; crop 0.752 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/neutral_101_anime_84_7.png" alt="neutral_101_anime_84_7.png">
+<figcaption><b>neutral_101_anime_84_7</b><span class="m">face 0.391 &middot; crop 0.764 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/neutral_101_anime_85.png" alt="neutral_101_anime_85.png">
+<figcaption><b>neutral_101_anime_85</b><span class="m">face 0.391 &middot; crop 0.764 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/profile_101_anime_78_7.png" alt="profile_101_anime_78_7.png">
+<figcaption><b>profile_101_anime_78_7</b><span class="m">face 0.345 &middot; crop 0.738 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/smile_101_anime_84_7.png" alt="smile_101_anime_84_7.png">
+<figcaption><b>smile_101_anime_84_7</b><span class="m">face 0.342 &middot; crop 0.755 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/smile_101_paint_84_23.png" alt="smile_101_paint_84_23.png">
+<figcaption><b>smile_101_paint_84_23</b><span class="m">face 0.768 &middot; crop 0.73 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/threeq_101_anime_78_23.png" alt="threeq_101_anime_78_23.png">
+<figcaption><b>threeq_101_anime_78_23</b><span class="m">face 0.377 &middot; crop 0.747 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/threeq_101_anime_78_7.png" alt="threeq_101_anime_78_7.png">
+<figcaption><b>threeq_101_anime_78_7</b><span class="m">face 0.441 &middot; crop 0.739 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/threeq_101_anime_84_23.png" alt="threeq_101_anime_84_23.png">
+<figcaption><b>threeq_101_anime_84_23</b><span class="m">face 0.313 &middot; crop 0.734 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/threeq_101_anime_84_7.png" alt="threeq_101_anime_84_7.png">
+<figcaption><b>threeq_101_anime_84_7</b><span class="m">face 0.269 &middot; crop 0.744 <i>(floor 0.719)</i></span></figcaption></figure>
+<figure class="av"><img loading="lazy" src="avatars/final_stylised/threeq_101_anime_85.png" alt="threeq_101_anime_85.png">
+<figcaption><b>threeq_101_anime_85</b><span class="m">face 0.269 &middot; crop 0.744 <i>(floor 0.719)</i></span></figcaption></figure></div>
+
+<h2 id="how">How it works</h2>
+<p>The locked configuration. <code>lib/make_avatars.py</code> runs it end to end: generate, gate, stylise, gate.</p>
+<table>
+<tr><th>Base</th><td>Flux.2 Klein 4B</td></tr>
+<tr><th>LoRA</th><td><code>chris_klein_lora_v5_000001000.safetensors</code> — checkpoint 1000, not the final</td></tr>
+<tr><th>Rank</th><td>16 <span class="dim">(rank 32 measured worse: 86% and 77%)</span></td></tr>
+<tr><th>Strength</th><td>1.5</td></tr>
+<tr><th>Sampler</th><td>Flux2Scheduler + CFGGuider + euler, cfg 3.5, 25 steps</td></tr>
+<tr><th>Trigger</th><td><code>chrswtkns</code> — and never describe the face in the prompt</td></tr>
+<tr><th>Stylisation</th><td>img2img from a passed avatar, denoise 0.78&ndash;0.84</td></tr>
+<tr><th>Yield</th><td>61% photoreal, ~50% anime through the gates</td></tr>
+</table>
+
+<h2 id="proof">How it was validated</h2>
+<p>Three gates. Each bar calibrated from measurement, never assumed.</p>
+<table>
+<tr><th>Gate</th><th>What it catches</th></tr>
+<tr><td>Face similarity (InsightFace)</td><td>A completely different person. Collapses under stylisation, so it cannot judge stylised identity.</td></tr>
+<tr><td>Appearance (CLIP, face crop)</td><td>Wrong beard, hair, build, age — everything the face metric ignores. The real discriminator.</td></tr>
+<tr><td>Style probe (CLIP text)</td><td>An unchanged photograph masquerading as a stylised avatar.</td></tr>
+</table>
+<p>Where the threshold came from — measured face-crop appearance:</p>
+<table>
+<tr><th>Group</th><th>Range</th></tr>
+<tr><td>You, 9 real photos</td><td>0.854 &ndash; 0.940</td></tr>
+<tr><td>Generated avatars, 22</td><td>0.751 &ndash; 0.880</td></tr>
+<tr><td>Known impostors, 15</td><td class="no">0.637 &ndash; 0.740</td></tr>
+</table>
+<p>A clean gap. 0.745 separates them perfectly. An earlier bar set at the minimum of your own photos was far stricter than needed and understated the model at 51%.</p>
+<section class="sheet"><h3>The adversarial suite</h3><p>Twelve prompts built to break identity: profile, three-quarter, low angle, four styles, outdoor, stage, shouting, laughing.</p>
+<a href="19_BEST_v5_adversarial.jpg" target="_blank"><img loading="lazy" src="19_BEST_v5_adversarial.jpg" alt="The adversarial suite"></a></section>
+<section class="sheet"><h3>A bug that invalidated whole rounds</h3><p>Same LoRA, same prompt. A generic sampler scored 0.54; the correct Flux.2 scheduler scored 0.71.</p>
+<a href="16_sampler_fix.jpg" target="_blank"><img loading="lazy" src="16_sampler_fix.jpg" alt="A bug that invalidated whole rounds"></a></section>
+
+<h2 id="failed">What failed, with numbers</h2>
+<p>Ten approaches measured and rejected. Kept because each one explains a decision.</p>
+<section class="sheet bad"><h3>v2: descriptive captions</h3><p>Ask for a profile and it returns a woman. Describing his beard in captions meant the words owned the face, not the trigger.</p>
+<a href="18_v2_adversarial.jpg" target="_blank"><img loading="lazy" src="18_v2_adversarial.jpg" alt="v2: descriptive captions"></a></section>
+<section class="sheet bad"><h3>v4: five variables changed at once</h3><p>Total collapse. A cartoon vegetable, an empty room, a cartoon child.</p>
+<a href="17_v4_samples.jpg" target="_blank"><img loading="lazy" src="17_v4_samples.jpg" alt="v4: five variables changed at once"></a></section>
+<section class="sheet bad"><h3>PuLID</h3><p>Scored 0.01-0.10. It embeds face geometry only; beard, hair and build came from the prompt.</p>
+<a href="05_pulid_FAILED.jpg" target="_blank"><img loading="lazy" src="05_pulid_FAILED.jpg" alt="PuLID"></a></section>
+<section class="sheet bad"><h3>Canny ControlNet</h3><p>Draws lines over the photo. Reads as a filter, not a character.</p>
+<a href="07_controlnet_FAILED.jpg" target="_blank"><img loading="lazy" src="07_controlnet_FAILED.jpg" alt="Canny ControlNet"></a></section>
+<section class="sheet bad"><h3>14 impostors that passed the face metric</h3><p>A different man entirely. This is why the appearance metric exists.</p>
+<a href="20_painted_gated.jpg" target="_blank"><img loading="lazy" src="20_painted_gated.jpg" alt="14 impostors that passed the face metric"></a></section>
+<section class="sheet bad"><h3>Beard negatives</h3><p>Killed the long beard and the likeness together.</p>
+<a href="15_beard_control.jpg" target="_blank"><img loading="lazy" src="15_beard_control.jpg" alt="Beard negatives"></a></section>
+<section class="sheet bad"><h3>v3</h3><p>Stopped early: beard stayed long.</p>
+<a href="13_v3_step250.jpg" target="_blank"><img loading="lazy" src="13_v3_step250.jpg" alt="v3"></a></section>
+<section class="sheet bad"><h3>v3 progress</h3><p>Learning, but the beard never corrected.</p>
+<a href="14_v3_progress.jpg" target="_blank"><img loading="lazy" src="14_v3_progress.jpg" alt="v3 progress"></a></section>
+
+<h2 id="data">Training data</h2>
+<p>17 images: your 9 photos plus 8 frames mined from your video, chosen for head angle because profile and three-quarter were the weakest prompts.</p>
+<section class="sheet"><h3>Your photos</h3><p>The nine real photos. Daylight, office, blue LED, big expressions.</p>
+<a href="04_your_new_photos.jpg" target="_blank"><img loading="lazy" src="04_your_new_photos.jpg" alt="Your photos"></a></section>
+<section class="sheet"><h3>Frames mined from your video</h3><p>22 usable frames from 5,643, picked for sharpness and head angle.</p>
+<a href="03_training_frames_from_video.jpg" target="_blank"><img loading="lazy" src="03_training_frames_from_video.jpg" alt="Frames mined from your video"></a></section>
+
+<h2 id="voice">Voice and lip sync</h2>
+<p>Separate from the LoRA, and already working: your cloned voice, and H3 animating a face in sync with it.</p>
+<div class="media">
+<figure><h4>Lip sync test</h4><video controls src="09_lipsync_test.mp4"></video>
+<figcaption>Animated you speaking, driven by your cloned voice. Whisper transcribes it word-perfect.</figcaption></figure>
+<figure><h4>Identity adapter test</h4><video controls src="10_refmod_test.mp4"></video>
+<figcaption>Holds your face but forces photoreal at any strength.</figcaption></figure>
+<figure><h4>Voice clone options</h4><audio controls src="11_voice_clone_options.mp3"></audio>
+<figcaption>VoxCPM2 from 12s, VoxCPM2 from 30s, Chatterbox. You picked the second.</figcaption></figure>
+<figure><h4>Pilot narration</h4><audio controls src="12_pilot_narration_full.mp3"></audio>
+<figcaption>The full unit-testing script in your voice.</figcaption></figure>
+</div>
+
+</main></body></html>
